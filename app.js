@@ -1,5 +1,4 @@
-const main=()=>{
-	console.log('bkkd');
-
-
+const main = () => {
+  console.log('bkkd')
 }
+main()
