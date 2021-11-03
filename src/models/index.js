@@ -7,6 +7,7 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 // eslint-disable-next-line node/no-path-concat
 const config = require(__dirname + '/../config/config.json')[env];
+// const config = require(__dirname + '/../config/database')[env];
 const db = {};
 
 let sequelize;
@@ -32,6 +33,6 @@ Object.keys(db).forEach((modelName) => {
 });
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// db.Sequelize = Sequelize;
 
 module.exports = db;
