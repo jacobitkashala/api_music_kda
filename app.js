@@ -1,13 +1,17 @@
 /* eslint-disable no-unused-vars */
-
-const express = require('express');
 const Cors = require('cors');
+const express = require('express');
 const routes = require('./src/routes');
+const bodyParser = require('body-parser');
 const { sequelize } = require('./src/models');
+
+const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use(
   Cors({
     origin: ['*'],
