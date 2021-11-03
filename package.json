@@ -8,7 +8,7 @@
     "prettier": " prettier app.js --write",
     "eslint": " eslint app.js --fix",
     "start": "node app.js ",
-    "startdemon": "nodemon app.js",
+    "dev": "nodemon app.js",
     "prepare": "husky install"
   },
   "author": "jacobitkashala",
