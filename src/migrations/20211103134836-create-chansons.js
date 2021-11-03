@@ -1,27 +1,51 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface, DataTypes) => {
     await queryInterface.createTable('Chansons', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: DataTypes.INTEGER
       },
       id_chanson: {
-        type: Sequelize.UUID
+        type: DataTypes.UUID
+      },
+      son_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      name_autor: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      genre_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      munite_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      image_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      name_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: DataTypes.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: DataTypes.DATE
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface, DataTypes) => {
     await queryInterface.dropTable('Chansons');
   }
 };

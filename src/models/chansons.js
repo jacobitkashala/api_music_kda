@@ -13,13 +13,34 @@ module.exports = (sequelize, DataTypes) => {
   }
   Chansons.init(
     {
-      id_chanson: DataTypes.UUID,
-      son_chanson: DataTypes.TEXT,
-      name_autor: DataTypes.STRING,
-      genre_chanson: DataTypes.STRING,
-      munite_chanson: DataTypes.STRING,
-      image_chanson: DataTypes.STRING,
-      name_chanson: DataTypes.STRING
+      id_chanson: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4
+      },
+      son_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      name_autor: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      genre_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      munite_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      image_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      name_chanson: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
     },
     {
       sequelize,
