@@ -19,6 +19,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
+    "heroku-cli": "^7.0.9",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.2",
     "nodemailer": "^6.7.0",
@@ -47,8 +48,7 @@
   },
   "lint-staged": {
     "*.{js,mjs}": [
-      "eslint --cache --fix",
-      "prettier --write"
+      "eslint --cache --fix"
     ]
   }
 }
