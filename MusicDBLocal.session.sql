@@ -1,2 +1,2 @@
--- show tables;
-DESC Chansons;
+show tables;
+-- select * form Chansons;
