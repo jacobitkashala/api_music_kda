@@ -5,7 +5,7 @@ const postChanson = (req, res) => {
     req.body;
   try {
     console.log(sonChanson, nameAutor, genreChanson, muniteChanson, imageChanson, nameChanson);
-    const Chan = Chansons.create({
+    Chansons.create({
       sonChanson,
       nameAutor,
       genreChanson,
@@ -14,7 +14,7 @@ const postChanson = (req, res) => {
       nameChanson
     });
 
-    return res.status(200).send(Chan);
+    return res.status(200).send({ message: 'biiii' });
   } catch (error) {
     return res.status(401).send({ erreur: error });
   }
