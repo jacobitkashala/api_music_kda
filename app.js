@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const Cors = require('cors');
 const express = require('express');
-const routes = require('./src/routes');
+const routes = require('./src/routes/songs.router');
 const bodyParser = require('body-parser');
 const { sequelize } = require('./src/models');
 
@@ -26,6 +26,7 @@ app.use((req, resp, next) => {
   resp.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
+// app.use("/",routes);
 
 routes(app);
 
