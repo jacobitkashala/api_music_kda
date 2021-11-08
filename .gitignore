@@ -78,3 +78,4 @@ node_modules/
 /MusicDBLocal.session.sql
 /MusiDbCloud.session.sql
 /MusicDBLocal.session.sqlnode_modules
+npm-debug.log
