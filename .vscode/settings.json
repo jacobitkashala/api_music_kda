@@ -12,6 +12,19 @@
 			"database": "musik_database",
 			"username": "jaco",
 			"password": "1234"
+		},
+		{
+			"mysqlOptions": {
+				"authProtocol": "default"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 21129,
+			"driver": "MySQL",
+			"name": "MusiDbCloud",
+			"username": "uyt0hurfgps1cx7o",
+			"password": "gCGRs3UvzSRTMyT2hdV",
+			"database": "bdxwl2civna7z96vlvmm"
 		}
 	]
 }
