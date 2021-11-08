@@ -1,20 +1,19 @@
 const { Chansons } = require('../../models');
 
-const postChanson = (req, res) => {
+const postChanson = async (req, res) => {
   const { sonChanson, nameAutor, genreChanson, muniteChanson, imageChanson, nameChanson } =
     req.body;
   try {
-    console.log(sonChanson, nameAutor, genreChanson, muniteChanson, imageChanson, nameChanson);
-    Chansons.create({
-      sonChanson,
-      nameAutor,
-      genreChanson,
-      muniteChanson,
-      imageChanson,
-      nameChanson
+    const songs = await Chansons.create({
+      son_chanson: sonChanson,
+      name_chanson: nameChanson,
+      genre_chanson: genreChanson,
+      munite_chanson: muniteChanson,
+      image_chanson: imageChanson,
+      name_autor: nameAutor
     });
 
-    return res.status(200).send({ message: 'biiii' });
+    return res.status(200).send(songs);
   } catch (error) {
     return res.status(401).send({ erreur: error });
   }

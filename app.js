@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const Cors = require('cors');
 const express = require('express');
-const routes = require('./src/routes/songs.router');
+const routes = require('./src/routes');
 const bodyParser = require('body-parser');
 const { sequelize } = require('./src/models');
 
