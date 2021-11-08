@@ -74,5 +74,7 @@ typings/
 .serverless
 
 node_modules/
+
 /MusicDBLocal.session.sql
 /MusiDbCloud.session.sql
+/MusicDBLocal.session.sql
