@@ -26,12 +26,13 @@ app.use((req, resp, next) => {
   resp.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
+// app.use("/",routes);
 
 routes(app);
 
 app.listen(PORT, async () => {
   try {
-    await sequelize.authenticate();
+    // await sequelize.authenticate();
     console.log(`Our server is listening on the ${PORT} port`);
   } catch (error) {
     console.log('erreur :' + error);
