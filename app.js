@@ -32,7 +32,7 @@ routes(app);
 
 app.listen(PORT, async () => {
   try {
-    await sequelize.authenticate();
+    // await sequelize.authenticate();
     console.log(`Our server is listening on the ${PORT} port`);
   } catch (error) {
     console.log('erreur :' + error);
