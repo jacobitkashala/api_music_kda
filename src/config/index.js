@@ -1,6 +1,6 @@
 require('dotenv').config();
 // cloud
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development1') {
   console.log('dev');
   module.exports = {
     PORT: process.env.PORTLOCAL,
