@@ -9,7 +9,9 @@ module.exports = {
         type: DataTypes.INTEGER
       },
       id_chanson: {
-        type: DataTypes.UUID
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
       },
       son_chanson: {
         type: DataTypes.STRING,
