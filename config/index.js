@@ -1,7 +1,7 @@
 require('dotenv').config();
 // cloud
-if (process.env.NODE_ENV === 'development1') {
-  console.log('dev');
+if (process.env.NODE_ENV === 'development') {
+  console.log('local');
   module.exports = {
     PORT: process.env.PORTLOCAL,
     DB_HOST: process.env.DB_HOSTLOCAL,
@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'development1') {
     DB_CONNECTION_TIMEOUT: process.env.DB_CONNECTION_TIMEOUTLOCAL
   };
 } else {
-  console.log('Prod');
+  console.log('cloud');
   module.exports = {
     PORT: process.env.PORT,
     DB_HOST: process.env.DB_HOST,

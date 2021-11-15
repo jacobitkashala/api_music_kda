@@ -3,14 +3,13 @@ module.exports = {
   up: async (queryInterface, DataTypes) => {
     await queryInterface.createTable('Chansons', {
       id: {
-        // allowNull: false,
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
       },
       id_chanson: {
         allowNull: false,
-        primaryKey: true,
         type: DataTypes.UUID,
       },
       son_chanson: {
