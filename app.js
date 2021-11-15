@@ -12,21 +12,14 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(
-  Cors({
-    origin: ['*'],
-    method: ['GET', 'PUT', 'POST', 'DELETE'],
-    Credential: true
-  })
-);
+const corsOptions = {
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "credentials": true,
+  "optionSuccessStatus": 200,
+};
 
-app.use((req, resp, next) => {
-  resp.setHeader('Access-Control-Allow-Origin', '*');
-  resp.setHeader('Access-Control-Allow-Methods', 'OPTOINS, GET, POST, DELETE, PUT');
-  resp.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
-// app.use("/",routes);
+app.use(Cors(corsOptions));
 
 routes(app);
 

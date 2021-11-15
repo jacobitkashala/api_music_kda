@@ -5,8 +5,8 @@ const putSong = require('./song/find');
 const deleteSong = require('./song/delete');
 module.exports = {
   welcom,
-  postSongs,
-  getSongs,
   putSong,
+  getSongs,
+  postSongs,
   deleteSong
 };

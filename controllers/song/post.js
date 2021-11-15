@@ -1,6 +1,7 @@
 const { Chansons } = require('../../models');
+// const { songPostMiddleware } =require('../../middleware');
 
-const postChanson = async (req, res) => {
+const postChanson = async ( req, res) => {
   const { sonChanson, nameAutor, genreChanson, muniteChanson, imageChanson, nameChanson } =
     req.body;
 
