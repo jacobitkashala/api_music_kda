@@ -1,7 +1,7 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Chansons extends Model {
+  class Songs extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Chansons.init(
+  Songs.init(
     {
-      id_chanson: {
+      id_song: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
       },
-      son_chanson: {
+      url_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -25,27 +25,27 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      genre_chanson: {
+      genre_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      munite_chanson: {
+      munite_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      image_chanson: {
+      image_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      name_chanson: {
+      name_song: {
         type: DataTypes.STRING,
         allowNull: false
       }
     },
     {
       sequelize,
-      modelName: 'Chansons'
+      modelName: 'Songs'
     }
   );
-  return Chansons;
+  return Songs;
 };

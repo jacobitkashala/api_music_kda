@@ -1,18 +1,18 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, DataTypes) => {
-    await queryInterface.createTable('Chansons', {
+    await queryInterface.createTable('Songs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      id_chanson: {
+      id_song: {
         allowNull: false,
         type: DataTypes.UUID,
       },
-      son_chanson: {
+      url_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -20,19 +20,19 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
-      genre_chanson: {
+      genre_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      munite_chanson: {
+      munite_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      image_chanson: {
+      image_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      name_chanson: {
+      name_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -47,6 +47,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, DataTypes) => {
-    await queryInterface.dropTable('Chansons');
+    await queryInterface.dropTable('Songs');
   }
 };

@@ -72,7 +72,7 @@ typings/
 
 # Serverless directories
 .serverless
-
+requette.sql
 node_modules/
 
 /MusicDBLocal.session.sql
