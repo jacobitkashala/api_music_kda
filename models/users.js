@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Users.init({
-    id_users: {
+    id_user: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
       },
-    name_users: {
+    name_user: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -26,24 +26,23 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-    telephone_users: {
+    telephone_user: {
         type: DataTypes.STRING,
         allowNull: false
       },
-    role_users: {
+    role_user: {
         type: DataTypes.STRING,
         allowNull: false
       },
-    id_album: {
+    email_user: {
         allowNull: false,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4
+        type: DataTypes.STRING,
       },
-    id_contenue: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false
-      }
+    // id_contenue: {
+    //   type: DataTypes.UUID,
+    //   defaultValue: DataTypes.UUIDV4,
+    //   allowNull: false
+    //   }
   }, {
     sequelize,
     modelName: 'Users',

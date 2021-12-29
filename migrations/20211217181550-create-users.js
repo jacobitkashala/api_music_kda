@@ -8,30 +8,30 @@ module.exports = {
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      id_users: {
+      id_user: {
         allowNull: false,
         type: DataTypes.UUID,
       },
-      name_users: {
+      name_user: {
         type: DataTypes.STRING
       },
       password_user: {
         type: DataTypes.STRING
       },
-      telephone_users: {
+      telephone_user: {
         type: DataTypes.STRING
       },
-      role_users: {
+      role_user: {
         type: DataTypes.STRING
       },
-      id_album: {
+      email_user: {
          allowNull: false,
-        type: DataTypes.UUID
+        type: DataTypes.STRING
       },
-      id_contenue: {
-         allowNull: false,
-        type: DataTypes.UUID
-      },
+      // id_contenue: {
+      //    allowNull: false,
+      //   type: DataTypes.UUID
+      // },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
