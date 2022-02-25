@@ -1,13 +1,13 @@
 const { Users } = require('../../models');
 
 const postUser = async ( req, res) => {
-  const { nameUser, passwordUser, telephoneUser, roleUser,emailUser   } =    req.body;
-
+  const { nameUser, passwordUser, numberPhoneUser, roleUser,emailUser   } =    req.body;
+console.log(nameUser, passwordUser, numberPhoneUser, roleUser,emailUser)
   try {
     const User = await Users.create({
     name_user:nameUser,
     password_user:passwordUser,
-    telephone_user:telephoneUser,
+    telephone_user:numberPhoneUser,
     role_user:roleUser,
     email_user:emailUser      
     });
