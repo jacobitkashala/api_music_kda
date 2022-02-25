@@ -1,5 +1,6 @@
 const welcom = require('./welcom');
 
+// const authenticate = require('./auth/passport');
 
 const getSong = require('./song/get');
 const putSong = require('./song/find');
@@ -11,7 +12,10 @@ const putUser = require('./user/find');
 const postUser = require('./user/post');
 const deleteUser = require('./user/delete');
 
+const authenticate = require('./user/authen');
+
 module.exports = {
+  authenticate,
   welcom,
   putSong,
   getSong,
@@ -20,5 +24,5 @@ module.exports = {
   getUser,
   putUser,
   postUser,
-  deleteUser 
+  deleteUser
 };

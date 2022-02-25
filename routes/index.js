@@ -1,9 +1,13 @@
-const { welcom, postUser } = require('../controllers');
-const { userPostMiddleware } = require('../middleware');
-// postSongs, getSongs, putSong, deleteSong authentification api/auth/local
+const { welcom, postUser,authenticate } = require('../controllers');
+const { userPostMiddleware, authUserMiddleware } = require('../middleware');
+// postSongs, getSongs, putSong, deleteSong authentification api/
 
 function routes(app) {
   app.route('/').get(welcom);
+
+  // Authentification user
+
+  app.route('/api/auth/local').post(authUserMiddleware, authenticate);
 
   app.route('/api/user').post(userPostMiddleware, postUser);
 
