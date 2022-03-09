@@ -10,24 +10,24 @@ const authenticate = async (req, res) => {
 
     const isPasswordValid = await compare(passwordUser, userWithEmail.password_user);
 
-    console.log(userWithEmail);
+    // console.log(userWithEmail);
 
     if (!isPasswordValid) {
-      return res.status(401).json({ message: "L'utlisateur n'existe pas" });
+      return res.status(401).send({ message: "L'utlisateur n'existe pas" });
     }
 
     if (!userWithEmail && !isPasswordValid) {
-      return res.status(400).json({ message: 'Email and password does not valid' });
+      return res.status(400).send({ message: 'Email and password does not valid' });
     } else if (userWithEmail && !isPasswordValid) {
-      return res.status(400).json({ message: 'Password not valid' });
+      return res.status(400).send({ message: 'Password not valid' });
     } else if (!userWithEmail && isPasswordValid) {
-      return res.status(400).json({ message: 'Email not valid' });
+      return res.status(400).send({ message: 'Email not valid' });
     } else {
       const jwtToken = jwt.sign(
         { id: userWithEmail.id, email: userWithEmail.email_user },
         process.env.JWT_SECRET
       );
-      res.status(200).json({
+      res.status(200).send({
         message: 'Welcome Back!',
         token: jwtToken,
         name: `${userWithEmail.name_user}`,
