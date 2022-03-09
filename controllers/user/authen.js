@@ -28,11 +28,13 @@ const authenticate = async (req, res) => {
         process.env.JWT_SECRET
       );
       res.status(200).send({
-        message: 'Welcome Back!',
-        token: jwtToken,
-        name: `${userWithEmail.name_user}`,
-        role: ` ${userWithEmail.role_user}`,
-        id_user: `${userWithEmail.id_user}`
+        data: {
+          message: 'Welcome Back!',
+          token: jwtToken,
+          name: `${userWithEmail.name_user}`,
+          role: ` ${userWithEmail.role_user}`,
+          id_user: `${userWithEmail.id_user}`
+        }
       });
     }
   } catch (error) {
