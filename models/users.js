@@ -37,6 +37,11 @@ module.exports = (sequelize, DataTypes) => {
     email_user: {
         allowNull: false,
         type: DataTypes.STRING,
+        unique: true
+      },
+      sex_user: {
+        allowNull: false,
+        type: DataTypes.STRING(1),
       },
     // id_contenue: {
     //   type: DataTypes.UUID,

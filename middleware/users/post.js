@@ -5,6 +5,7 @@ const usersgPostMiddleware = express();
 
 const validationDataSong = [
   body('nameUser').notEmpty().withMessage('nameUsers is empty'),
+  body('sexUser').notEmpty().withMessage('nameUsers is empty'),
   body('passwordUser').notEmpty().withMessage('passwordUsers is empty'),
   body('roleUser').notEmpty().withMessage('roleUsers is empty'),
   body('emailUser')
@@ -17,6 +18,8 @@ const validationDataSong = [
     .withMessage('numberPhoneUsers is empty')
     .isNumeric()
     .withMessage('numberPhoneUsers is not numeric')
+    .isMobilePhone()
+    .withMessage('Saisir le un numéro de téléphone')
 ];
 
 usersgPostMiddleware.use(validationDataSong, async (req, res, next) => {

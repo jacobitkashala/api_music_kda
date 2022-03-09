@@ -17,9 +17,6 @@ authMiddleware.use(validationDataAuth, async (req, res, next) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  // const { emailUser, passwordUser } = req.body;
-  // res.newMail = emailUser;
-  // res.newPass = passwordUser;
   next();
 });
 

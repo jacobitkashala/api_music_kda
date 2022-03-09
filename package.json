@@ -11,7 +11,7 @@
     "prettier": " prettier app.js --write",
     "eslint": " eslint app.js --fix",
     "start": "node app.js ",
-    "dev": "nodemon app.js",
+    "develop": "nodemon app.js",
     "prepare": "husky install"
   },
   "author": "jacobitkashala",

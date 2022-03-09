@@ -10,23 +10,33 @@ module.exports = {
       },
       id_user: {
         allowNull: false,
-        type: DataTypes.UUID,
+        type: DataTypes.UUID
       },
       name_user: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
       },
       password_user: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
       },
       telephone_user: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
       },
       role_user: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
       },
       email_user: {
-         allowNull: false,
-        type: DataTypes.STRING
+        allowNull: false,
+        type: DataTypes.STRING,
+        unique: true
+      },
+      sex_user: {
+        allowNull: false,
+        type: DataTypes.STRING(1)
+        //  unique: true
       },
       // id_contenue: {
       //    allowNull: false,

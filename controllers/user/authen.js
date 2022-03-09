@@ -24,16 +24,15 @@ const authenticate = async (req, res) => {
       return res.status(400).json({ message: 'Email not valid' });
     } else {
       const jwtToken = jwt.sign(
-        { id: userWithEmail.id, email: userWithEmail.email },
+        { id: userWithEmail.id, email: userWithEmail.email_user },
         process.env.JWT_SECRET
       );
       res.status(200).json({
         message: 'Welcome Back!',
         token: jwtToken,
-        name: `${userWithEmail.nom_user} ${userWithEmail.prenom_user}`,
+        name: `${userWithEmail.name_user}`,
         role: ` ${userWithEmail.role_user}`,
-        id_user: `${userWithEmail.id_user}`,
-        status: `${userWithEmail.statut}`
+        id_user: `${userWithEmail.id_user}`
       });
     }
   } catch (error) {
