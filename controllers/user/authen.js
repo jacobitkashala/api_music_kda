@@ -24,7 +24,7 @@ const authenticate = async (req, res) => {
       return res.status(400).send({ message: 'Email not valid' });
     } else {
       const jwtToken = jwt.sign(
-        { id: userWithEmail.id, email: userWithEmail.email_user },
+        { id: userWithEmail.id, email: userWithEmail.email_user, expiresIn: '1h' },
         process.env.JWT_SECRET
       );
       res.status(200).send({
