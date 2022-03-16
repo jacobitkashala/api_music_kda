@@ -9,15 +9,13 @@ module.exports = {
         type: DataTypes.INTEGER
       },
       id_song: {
-        // primaryKey: true,
         allowNull: false,
         type: DataTypes.UUID
       },
       url_song: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      name_autor: {
+      } , title_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -26,14 +24,6 @@ module.exports = {
         allowNull: false
       },
       munite_song: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      image_song: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      name_song: {
         type: DataTypes.STRING,
         allowNull: false
       },

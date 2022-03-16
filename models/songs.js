@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      name_autor: {
+      title_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -30,14 +30,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       munite_song: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      image_song: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      name_song: {
         type: DataTypes.STRING,
         allowNull: false
       }
