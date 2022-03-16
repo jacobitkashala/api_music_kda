@@ -10,7 +10,6 @@ module.exports = {
       },
       id_user: {
         allowNull: false,
-        // primaryKey: true,
         type: DataTypes.UUID
       },
       name_user: {
@@ -37,18 +36,17 @@ module.exports = {
       sex_user: {
         allowNull: false,
         type: DataTypes.STRING(1)
-        //  unique: true
       },
-      // id_contenue: {
-      //    allowNull: false,
-      //   type: DataTypes.UUID
-      // },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
       },
       updatedAt: {
         allowNull: false,
+        type: DataTypes.DATE
+      },
+      deletedAt: {
+        allowNull: true,
         type: DataTypes.DATE
       }
     });

@@ -27,12 +27,25 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
+      id_album: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: 'Album',
+          key: 'id_album'
+        },
+        onUpdate: 'CASCADE'
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
       },
       updatedAt: {
         allowNull: false,
+        type: DataTypes.DATE
+      },
+      deletedAt: {
+        allowNull: true,
         type: DataTypes.DATE
       }
     });

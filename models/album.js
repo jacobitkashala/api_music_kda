@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
+      models.Album.belongsTo(models.Songs);
     }
   }
   Album.init(
