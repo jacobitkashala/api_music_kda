@@ -9,6 +9,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      models.Podcasts.hasOne(models.Users, {
+        foreignKey: {
+          name: 'id_user',
+          type: DataTypes.UUID,
+          allowNull: false
+        },
+        references: {
+          model: models.Users,
+          key: 'id_user'
+        },
+        onUpdate: 'CASCADE'
+      });
     }
   }
   Podcasts.init(

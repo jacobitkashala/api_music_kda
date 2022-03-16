@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
       models.Album.hasOne(models.Users, {
         foreignKey: {
           name: 'id_user',
@@ -20,9 +21,9 @@ module.exports = (sequelize, DataTypes) => {
           model: models.Users,
           key: 'id_user'
         },
-        onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
+
       models.Album.belongsTo(models.Songs);
     }
   }
