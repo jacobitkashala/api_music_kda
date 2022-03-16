@@ -14,12 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       models.Album.hasOne(models.Users, {
         foreignKey: {
           name: 'id_user',
-          type: DataTypes.UUID,
           allowNull: false
         },
         references: {
           model: models.Users,
-          key: 'id_user'
+          key: 'id'
         },
         onUpdate: 'CASCADE'
       });

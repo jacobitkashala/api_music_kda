@@ -29,11 +29,11 @@ module.exports = {
         allowNull: false
       },
       id_user: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: 'Users',
-          key: 'id_user'
+          key: 'id'
         },
         onUpdate: 'CASCADE'
       },

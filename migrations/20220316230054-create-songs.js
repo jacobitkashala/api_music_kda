@@ -30,11 +30,11 @@ module.exports = {
         allowNull: false
       },
       id_album: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: 'Album',
-          key: 'id_album'
+          key: 'id'
         },
         onUpdate: 'CASCADE'
       },
