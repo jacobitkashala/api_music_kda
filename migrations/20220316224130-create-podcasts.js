@@ -1,42 +1,32 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, DataTypes) => {
-    await queryInterface.createTable('Albums', {
+    await queryInterface.createTable('Podcasts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      id_album: {
+      id_podcast: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
-      },
-      title_album: {
-        type: DataTypes.STRING,
-        allowNull: false
       },
       url_image: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      is_top: {
+      url_song: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      author: {
+      title_podcast: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      id_user: {
-        type: DataTypes.UUID,
-        allowNull: false,
-        references: {
-          model: 'Users',
-          key: 'id_user'
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+      name_media: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -53,6 +43,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, DataTypes) => {
-    await queryInterface.dropTable('Albums');
+    await queryInterface.dropTable('Podcasts');
   }
 };
