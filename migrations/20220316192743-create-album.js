@@ -2,15 +2,14 @@
 module.exports = {
   up: async (queryInterface, DataTypes) => {
     await queryInterface.createTable('Albums', {
-      // id: {
-      //   allowNull: false,
-      //   autoIncrement: true,
-      //   primaryKey: true,
-      //   type: DataTypes.INTEGER
-      // },
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
+      },
       id_album: {
         type: DataTypes.UUID,
-        primaryKey: true,
         defaultValue: DataTypes.UUIDV4
       },
       title_album: {
@@ -33,11 +32,11 @@ module.exports = {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-          model: "Users",
-          key: "id_user",
+          model: 'Users',
+          key: 'id_user'
         },
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -47,11 +46,11 @@ module.exports = {
         allowNull: false,
         type: DataTypes.DATE
       },
-     
+
       deletedAt: {
         allowNull: true,
-        type: DataTypes.DATE,
-      },
+        type: DataTypes.DATE
+      }
     });
   },
   down: async (queryInterface, DataTypes) => {
