@@ -10,6 +10,8 @@ function routes(app) {
   app.route('/api/auth/local').post(authUserMiddleware, authenticate);
 
   app.route('/api/user').get(tokenMiddleware,getUser).post(userPostMiddleware, tokenMiddleware,postUser);
+  
+  app.route('/api/userw').post(userPostMiddleware,postUser);
 
   // app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 }
