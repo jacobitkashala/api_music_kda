@@ -1,7 +1,8 @@
 'use strict';
 const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  class Users extends Model {
+  class Album extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,50 +10,48 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Users.belongsTo(models.Album);
+      models.Album.hasOne(models.Users, {
+        foreignKey: {
+          name: 'id_user',
+          type: DataTypes.UUID,
+          allowNull: false
+        },
+        references: {
+          model: models.Users,
+          key: 'id_user'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
     }
   }
-  Users.init(
+  Album.init(
     {
-      id_user: {
+      id_album: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
       },
-      name_user: {
+      title_album: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      password_user: {
+      url_image: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      telephone_user: {
+      is_top: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      role_user: {
+      author: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      email_user: {
-        allowNull: false,
-        type: DataTypes.STRING,
-        unique: true
-      },
-      sex_user: {
-        allowNull: false,
-        type: DataTypes.STRING(1)
       }
-      // id_contenue: {
-      //   type: DataTypes.UUID,
-      //   defaultValue: DataTypes.UUIDV4,
-      //   allowNull: false
-      //   }
     },
     {
       sequelize,
-      modelName: 'Users'
+      modelName: 'Album'
     }
   );
-  return Users;
+  return Album;
 };

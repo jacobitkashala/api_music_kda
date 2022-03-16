@@ -1,48 +1,44 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, DataTypes) => {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Albums', {
       // id: {
       //   allowNull: false,
       //   autoIncrement: true,
       //   primaryKey: true,
       //   type: DataTypes.INTEGER
       // },
-      id_user: {
-        allowNull: false,
+      id_album: {
+        type: DataTypes.UUID,
         primaryKey: true,
-        type: DataTypes.UUID
+        defaultValue: DataTypes.UUIDV4
       },
-      name_user: {
+      title_album: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      password_user: {
+      url_image: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      telephone_user: {
+      is_top: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      role_user: {
+      author: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      email_user: {
+      id_user: {
+        type: DataTypes.UUID,
         allowNull: false,
-        type: DataTypes.STRING,
-        unique: true
+        references: {
+          model: "Users",
+          key: "id_user",
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
-      sex_user: {
-        allowNull: false,
-        type: DataTypes.STRING(1)
-        //  unique: true
-      },
-      // id_contenue: {
-      //    allowNull: false,
-      //   type: DataTypes.UUID
-      // },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
@@ -50,10 +46,15 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: DataTypes.DATE
-      }
+      },
+     
+      deletedAt: {
+        allowNull: true,
+        type: DataTypes.DATE,
+      },
     });
   },
   down: async (queryInterface, DataTypes) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Albums');
   }
 };
