@@ -10,6 +10,7 @@ const deleteSong = require('./song/delete');
 const getUser = require('./user/get');
 const putUser = require('./user/find');
 const postUser = require('./user/post');
+const postuserW = require('./user/postWin');
 const deleteUser = require('./user/delete');
 
 const authenticate = require('./user/authen');
@@ -24,5 +25,6 @@ module.exports = {
   getUser,
   putUser,
   postUser,
-  deleteUser
+  deleteUser,
+  postuserW
 };
