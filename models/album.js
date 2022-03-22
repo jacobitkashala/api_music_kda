@@ -13,17 +13,15 @@ module.exports = (sequelize, DataTypes) => {
 
       models.Album.hasOne(models.Users, {
         foreignKey: {
-          name: 'id_user',
-          allowNull: false
-        },
-        references: {
-          model: models.Users,
-          key: 'id'
-        },
-        onUpdate: 'CASCADE'
+          // name: 'id_user',
+          allowNull: false,
+          references: {
+            model: models.Users,
+            key: 'id'
+          },
+          // onUpdate: 'CASCADE'
+        }
       });
-
-      // models.Album.belongsTo(models.Songs);
     }
   }
   Album.init(

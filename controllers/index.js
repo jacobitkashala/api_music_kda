@@ -1,6 +1,7 @@
 const welcom = require('./welcom');
 
-// const authenticate = require('./auth/passport');
+const postAlbum = require('./album/post');
+const getAlbum = require('./album/get');
 
 const getSong = require('./song/get');
 const putSong = require('./song/find');
@@ -16,15 +17,22 @@ const deleteUser = require('./user/delete');
 const authenticate = require('./user/authen');
 
 module.exports = {
-  authenticate,
   welcom,
+
+  authenticate,
+ 
   putSong,
   getSong,
   postSong,
   deleteSong,
+
+  postAlbum,
+  getAlbum,
+
   getUser,
   putUser,
   postUser,
   deleteUser,
+
   postuserW
 };
