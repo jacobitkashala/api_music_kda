@@ -3,6 +3,8 @@ const welcom = require('./welcom');
 const postAlbum = require('./album/post');
 const getAlbum = require('./album/get');
 
+const getUserAlbum =require('./album/userAlbum');
+
 const getSong = require('./song/get');
 const putSong = require('./song/find');
 const postSong = require('./song/post');
@@ -28,6 +30,7 @@ module.exports = {
 
   postAlbum,
   getAlbum,
+  getUserAlbum,
 
   getUser,
   putUser,

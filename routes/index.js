@@ -1,11 +1,17 @@
 const {
   welcom,
-  postUser,
-  postuserW,
-  authenticate,
+
   getUser,
+  postUser, 
+  
+  getAlbum,
+  
+  postuserW,
+  
   postAlbum,
-  getAlbum
+  getUserAlbum,
+  authenticate,
+  
 } = require('../controllers');
 const {
   userPostMiddleware,
@@ -29,8 +35,10 @@ function routes(app) {
     .post(userPostMiddleware, tokenMiddleware, postUser);
 
   // Route pour Album
-  app.route('/api/album').get(getAlbum).post(albumPostMiddleware, postAlbum);
+  app.route('/api/album').get(tokenMiddleware,getAlbum).post(albumPostMiddleware, tokenMiddleware,postAlbum);
+  app.route('/api/userAlbum').get(tokenMiddleware,getUserAlbum);
 
+  // root
   app.route('/api/userw').post(userPostMiddleware, postuserW);
 
   // app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
