@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
       models.Songs.hasOne(models.Album, {
         foreignKey: {
           name: 'id_album',
-          allowNull: false
-        },
-        references: {
-          model: models.Album,
-          key: 'id'
-        },
-        onUpdate: 'CASCADE'
+          allowNull: false,
+          references: {
+            model: models.Album,
+            key: 'id'
+          },
+          onUpdate: 'CASCADE'
+        }
       });
     }
   }
@@ -42,6 +42,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       munite_song: {
         type: DataTypes.STRING,
+        allowNull: false
+      },
+      id_album: {
+        type: DataTypes.INTEGER,
         allowNull: false
       }
     },

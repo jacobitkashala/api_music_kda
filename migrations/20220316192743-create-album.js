@@ -21,7 +21,7 @@ module.exports = {
         allowNull: false
       },
       is_top: {
-        type: DataTypes.STRING,
+        type: DataTypes.BOOLEAN,
         allowNull: false
       },
       author: {

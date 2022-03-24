@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
 
       models.Album.hasOne(models.Users, {
         foreignKey: {
-          // name: 'id_user',
+          name: 'id_user',
           allowNull: false,
           references: {
             model: models.Users,
             key: 'id'
           },
-          // onUpdate: 'CASCADE'
+          onUpdate: 'CASCADE'
         }
       });
     }
@@ -39,11 +39,15 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       is_top: {
-        type: DataTypes.STRING,
+        type: DataTypes.BOOLEAN,
         allowNull: false
       },
       author: {
         type: DataTypes.STRING,
+        allowNull: false
+      },
+      id_user:{
+        type: DataTypes.INTEGER,
         allowNull: false
       }
     },

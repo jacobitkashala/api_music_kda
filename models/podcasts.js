@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       models.Podcasts.hasOne(models.Users, {
         foreignKey: {
           name: 'id_user',
-          allowNull: false
-        },
-        references: {
-          model: models.Users,
-          key: 'id'
-        },
-        onUpdate: 'CASCADE'
+          allowNull: false,
+          references: {
+            model: models.Users,
+            key: 'id'
+          },
+          onUpdate: 'CASCADE'
+        }
       });
     }
   }
@@ -43,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       name_media: {
         type: DataTypes.STRING,
+        allowNull: false
+      },
+      id_user: {
+        type: DataTypes.INTEGER,
         allowNull: false
       }
     },
