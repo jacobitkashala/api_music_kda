@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
           onUpdate: 'CASCADE'
         }
       });
+      models.Users.belongsTo(models.Album);
     }
   }
   Album.init(
@@ -43,6 +44,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       author: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      contente_type: {
         type: DataTypes.STRING,
         allowNull: false
       },

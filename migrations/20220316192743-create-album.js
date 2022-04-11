@@ -28,6 +28,10 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
+      contente_type: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       id_user: {
         type: DataTypes.INTEGER,
         allowNull: false,

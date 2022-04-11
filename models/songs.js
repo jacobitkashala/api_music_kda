@@ -9,22 +9,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
       models.Songs.hasOne(models.Album, {
         foreignKey: {
-          name: 'id_album',
+          name: 'id_user',
           allowNull: false,
           references: {
-            model: models.Album,
+            model: models.Users,
             key: 'id'
           },
           onUpdate: 'CASCADE'
         }
       });
+      models.Album.belongsTo(models.Songs);
     }
   }
   Songs.init(
     {
-      id_song: {
+      id_songs: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
       },
@@ -32,19 +34,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      title_song: {
+      title_songs: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      genre_song: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      munite_song: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      id_album: {
+      id_user: {
         type: DataTypes.INTEGER,
         allowNull: false
       }
