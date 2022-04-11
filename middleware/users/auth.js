@@ -18,7 +18,10 @@ authMiddleware.use(validationDataAuth, async (req, res, next) => {
     return res.status(400).json({ errors: errors.array() });
   }
   console.log("next")
-  next();
+  
+ // return res.status(200).json({ errors: "bien" });
+
+   next();
 });
 
 module.exports = authMiddleware;

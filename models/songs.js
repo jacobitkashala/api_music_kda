@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
           onUpdate: 'CASCADE'
         }
       });
-      models.Album.belongsTo(models.Songs);
+     // models.Album.belongsTo(models.Songs);
     }
   }
   Songs.init(

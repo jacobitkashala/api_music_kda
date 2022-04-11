@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
           onUpdate: 'CASCADE'
         }
       });
-      models.Users.belongsTo(models.Album);
+      // models.Users.belongsTo(models.Album);
     }
   }
   Album.init(
