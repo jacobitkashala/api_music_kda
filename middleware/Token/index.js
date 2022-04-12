@@ -19,8 +19,8 @@ vefifyAccesToken.use(async (req, res, next) => {
       return res.status(203).send({ message: error });
     }
     req.payload = payload;
-     console.log(payload)
-     // next();
+     // console.log(payload)
+      next();
   });
 });
 
