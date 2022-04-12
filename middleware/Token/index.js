@@ -5,7 +5,7 @@ const JWT = require('jsonwebtoken');
 const vefifyAccesToken = express();
 
 vefifyAccesToken.use(async (req, res, next) => {
-  console.log(req.headers['authorization']);
+  // console.log(req.headers['authorization']);
   if (!req.headers['authorization']) return res.status(203).send({ message: 'Non authoriser' });
 
   const authHeader = req.headers['authorization'];
