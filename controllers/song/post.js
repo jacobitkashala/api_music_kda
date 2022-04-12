@@ -1,5 +1,5 @@
-// const { Songs } = require('../../models');
-// const { songPostMiddleware } =require('../../middleware');
+const { Album,Songs } = require('../../models');
+
 
 const postSong = async ( req, res) => {
   const {  idAlbum, titleSong, urlSong } =
@@ -7,16 +7,25 @@ const postSong = async ( req, res) => {
 
 
   try {
-    
-    console.log(idAlbum, titleSong, urlSong);
 
-    // const song = await Songs.create({
-    //   id_album: idAlbum,
-    //   url_song: urlSong,
-    //   title_songs: titleSong
-    // });
-
-    return res.status(200).send({message:"ffff"});
+    // console.log(idAlbum, titleSong, urlSong);
+    const albumFind = await Album.findOne({
+      where: {
+        id: idAlbum
+      }
+    });
+ 
+    if (albumFind) {
+      const newSong = await Songs.create({
+        title_songs: titleSong,
+        url_song: urlSong,
+        id_album: idAlbum,
+      });
+      return res.status(201).send(newSong);
+    } else {
+      return res.status(401).send({ erreur: 'the album does not exist' });
+    }
+    // return res.status(200).send(albumFind);
    // return res.status(200).send(song);
   } catch (error) {
     return res.status(401).send({ erreur: error });

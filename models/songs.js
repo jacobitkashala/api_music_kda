@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 
       models.Songs.hasOne(models.Album, {
         foreignKey: {
-          name: 'id_user',
+          name: 'id_album',
           allowNull: false,
           references: {
             model: models.Users,
@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      id_user: {
+      id_album: {
         type: DataTypes.INTEGER,
         allowNull: false
       }
