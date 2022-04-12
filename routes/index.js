@@ -1,14 +1,12 @@
 const {
   welcom,
-
   getUser,
   postUser, 
-  
   getAlbum,
-  
   postuserW,
-  
   postAlbum,
+  postSong,
+  getSong,
   getUserAlbum,
   authenticate,
   
@@ -41,6 +39,11 @@ function routes(app) {
 
   
   app.route('/api/userAlbum').get(tokenMiddleware,getUserAlbum);
+
+  // song
+
+  app.route('/api/song').
+  get(tokenMiddleware,getSong).post(tokenMiddleware,postSong);
 
   // root
   app.route('/api/userw').post(userPostMiddleware, postuserW);

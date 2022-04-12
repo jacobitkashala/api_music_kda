@@ -20,9 +20,7 @@ const authenticate = require('./user/authen');
 
 module.exports = {
   welcom,
-
   authenticate,
- 
   putSong,
   getSong,
   postSong,
