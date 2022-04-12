@@ -14,6 +14,7 @@ const {
 const {
   userPostMiddleware,
   authUserMiddleware,
+  songPostMiddleware,
   tokenMiddleware,
   albumPostMiddleware
 } = require('../middleware');
@@ -43,7 +44,7 @@ function routes(app) {
   // song
 
   app.route('/api/song').
-  get(tokenMiddleware,getSong).post(tokenMiddleware,postSong);
+  get(tokenMiddleware,getSong).post(tokenMiddleware,songPostMiddleware,postSong);
 
   // root
   app.route('/api/userw').post(userPostMiddleware, postuserW);

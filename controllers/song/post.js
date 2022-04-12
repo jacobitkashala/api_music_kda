@@ -1,19 +1,15 @@
-const { Chansons } = require('../../models');
+const { Songs } = require('../../models');
 // const { songPostMiddleware } =require('../../middleware');
 
-const postChanson = async ( req, res) => {
-  const { sonChanson, nameAutor, genreChanson, muniteChanson, imageChanson, nameChanson } =
+const postSong = async ( req, res) => {
+  const {  idAlbum, genreChanson, urlSong } =
     req.body;
 
   try {
-    const song = await Chansons.create({
-      name_autor: nameAutor,
-      son_chanson: sonChanson,
-      name_chanson: nameChanson,
-      genre_chanson: genreChanson,
-      munite_chanson: muniteChanson,
-      image_chanson: imageChanson,
-      
+    const song = await Songs.create({
+      id_album: idAlbum,
+      url_song: urlSong,
+      title_songs: genreChanson
     });
 
     return res.status(200).send(song);
@@ -21,4 +17,4 @@ const postChanson = async ( req, res) => {
     return res.status(401).send({ erreur: error });
   }
 };
-module.exports = postChanson;
+module.exports = postSong;

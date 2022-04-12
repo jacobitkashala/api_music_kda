@@ -1,4 +1,4 @@
-const { Chansons } = require('../../models');
+const { Songs } = require('../../models');
 
 const deleteSong = async (req, res) => {
   const { uuid } = req.params;
@@ -6,7 +6,7 @@ const deleteSong = async (req, res) => {
   // 	truncate: true
   //   });
   try {
-    const songs = await Chansons.destroy({
+    const songs = await Songs.destroy({
       where: { id_chanson: uuid }
     });
 

@@ -1,10 +1,10 @@
-const { Chansons } = require('../../models');
+const { Songs } = require('../../models');
 
 const getChanson = async (req, res) => {
   const { uuid } = req.params;
   // console.log(uuid);
   try {
-    const song = await Chansons.findOne({
+    const song = await Songs.findOne({
       where: { id_chanson: uuid }
     });
 
