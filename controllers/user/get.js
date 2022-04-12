@@ -8,7 +8,7 @@ const getUser = async (req, res) => {
     console.log(user)
     user.forEach(user=>{
 
-      responseUser.id=user.name_user;
+      responseUser.id=user.id;
       responseUser.sex=user.sex_user;
       responseUser.idUser=user.id_user;
       responseUser.nameUser=user.name_user;
