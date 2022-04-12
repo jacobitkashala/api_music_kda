@@ -4,11 +4,9 @@ const { body, validationResult } = require("express-validator");
 const songPostMiddleware = express();
 
 const validationDataSong = [
-	body("sonChanson").notEmpty().withMessage(" sonChanson is empty"),
-	body("genreChanson").notEmpty().withMessage("genreChanson is empty"),
-	body("muniteChanson").notEmpty().withMessage("muniteChanson is empty"),
-	body("imageChanson").notEmpty().withMessage("imageChanson is empty"),
-	body("nameChanson").notEmpty().withMessage("nameChanson is empty"),
+	body("idAlbum").notEmpty().withMessage(" idAlbum is empty"),
+	body("urlSongs").notEmpty().withMessage("urlSongs is empty"),
+	body("titleSongs").notEmpty().withMessage("titleSongs is empty"),
 ];
 
 songPostMiddleware.use(

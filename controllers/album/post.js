@@ -1,6 +1,7 @@
 const { Users, Album } = require('../../models');
 
 const postAlbum = async (req, res) => {
+  
   const { titleAlbum, urlImage, isTop, author, idUser,contentType } = req.body;
 
   try {
