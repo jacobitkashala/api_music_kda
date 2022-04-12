@@ -1,7 +1,7 @@
 const { Users, Album } = require('../../models');
 
-const postChanson = async (req, res) => {
-  const { titleAlbum, urlImage, isTop, author, idUser } = req.body;
+const postAlbum = async (req, res) => {
+  const { titleAlbum, urlImage, isTop, author, idUser,contentType } = req.body;
 
   try {
     const userFind = await Users.findOne({
@@ -13,6 +13,7 @@ const postChanson = async (req, res) => {
     // return res.status(201).send({ message: 'ok' });
     if (userFind) {
       const newAlbum = await Album.create({
+        contente_type: contentType,
         title_album: titleAlbum,
         url_image: urlImage,
         is_top: isTop,
@@ -27,4 +28,4 @@ const postChanson = async (req, res) => {
     return res.status(401).send({ erreur: error });
   }
 };
-module.exports = postChanson;
+module.exports = postAlbum;

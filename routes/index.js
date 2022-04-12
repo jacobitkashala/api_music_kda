@@ -35,7 +35,11 @@ function routes(app) {
     .post(userPostMiddleware, tokenMiddleware, postUser);
 
   // Route pour Album
-  app.route('/api/album').get(tokenMiddleware,getAlbum).post(albumPostMiddleware, tokenMiddleware,postAlbum);
+  app.route('/api/album').
+  get(tokenMiddleware,getAlbum).
+  post(albumPostMiddleware, tokenMiddleware,postAlbum);
+
+  
   app.route('/api/userAlbum').get(tokenMiddleware,getUserAlbum);
 
   // root

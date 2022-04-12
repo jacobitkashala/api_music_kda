@@ -9,6 +9,7 @@ const validationAlbum = [
 	body("urlImage").notEmpty().withMessage("urlImage is empty"),
 	body("isTop").notEmpty().withMessage("isTop is empty"),
 	body("author").notEmpty().withMessage("author is empty"),
+	body("contentType").notEmpty().withMessage("contentType is empty"),
 ];
 
 albumPostMiddleware.use(
@@ -18,7 +19,8 @@ albumPostMiddleware.use(
 		if (!errors.isEmpty()) {
 			return res.status(400).json({ errors: errors.array() });
 		}
-		next();
+		// return res.status(400).json({ errors: "d" });
+		 next();
 	}
 );
 

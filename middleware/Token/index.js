@@ -12,7 +12,7 @@ vefifyAccesToken.use(async (req, res, next) => {
   const bearerToken = authHeader.split(' ');
   const token = bearerToken[1];
 
-  console.log(token);
+  // console.log(token);
 
   JWT.verify(token, process.env.JWT_SECRET, (error, payload) => {
     if (error) {
