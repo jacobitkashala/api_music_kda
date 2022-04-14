@@ -6,7 +6,7 @@ const songPostMiddleware = express();
 const validationDataSong = [
 	body("idAlbum").notEmpty().withMessage(" idAlbum is empty"),
 	body("urlSong").notEmpty().withMessage("urlSong is empty"),
-	body("titleSong").notEmpty().withMessage("titleSong is empty"),
+	body("titleAlbum").notEmpty().withMessage("titleSong is empty"),
 ];
 
 songPostMiddleware.use(
