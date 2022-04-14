@@ -2,25 +2,29 @@ const { Users } = require('../../models');
 
 const getUser = async (req, res) => {
   try {
-    const responseUser = { id: '', idUser: '', nameUser: '',sex: '',mailUser: '', roleUser: '', numberPhoneUser: '' };
-    const response = [];
-    const user = await Users.findAll();
-    console.log(user)
-    user.forEach(user=>{
+    // const responseUser = {
+    //   id: '',
+    //   sex: '',
+    //   idUser: '',
+    //   nameUser: '',
+    //   mailUser: '',
+    //   roleUser: '',
+    //   numberPhoneUser: ''
+    // };
+    // const response = [];
+    const user = await Users.findAll({
+      attributes: [
+        ['id_user', 'idUser'],
+        ['role_user','roleUser'],
+        ['name_user', 'nameUser'],
+        ['email_user','emailUser'],
+        ['sex_user','sexUser'],
+        ['telephone_user','numberPhone'],
+      ]
+    });
 
-      responseUser.id=user.id;
-      responseUser.sex=user.sex_user;
-      responseUser.idUser=user.id_user;
-      responseUser.nameUser=user.name_user;
-      responseUser.roleUser=user.role_user;
-      responseUser.mailUser=user.email_user;
-      responseUser.numberPhoneUser=user.telephone_user;
-
-      response.push(responseUser);
-      
-    })
-
-    return res.status(200).send(response);
+    // return res.status(200).send({ message: 'ok' });
+    return res.status(200).send(user);
   } catch (error) {
     return res.status(500).send({ erreur: error });
   }
