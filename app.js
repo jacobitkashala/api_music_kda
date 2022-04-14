@@ -9,15 +9,23 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
+
+
+const corsOptions = {
+  origin: '["http://localhost:3000",  /.{5,6}\\/\\/kesho-congo-1-.{8,}/]',
+  credentials: true,
+  optionSuccessStatus: 200,
+}
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-const corsOptions = {
-  origin: '*',
-  methods: 'GET,PUT,POST,DELETE',
-  credentials: true,
-  optionSuccessStatus: 200
-};
+// const corsOptions = {
+//   origin: '*',
+//   methods: 'GET,PUT,POST,DELETE',
+//   credentials: true,
+//   optionSuccessStatus: 200
+// };
 
 app.use(Cors(corsOptions));
 
