@@ -24,10 +24,6 @@ module.exports = {
         type: DataTypes.BOOLEAN,
         allowNull: false
       },
-      author: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       contente_type: {
         type: DataTypes.STRING,
         allowNull: false
