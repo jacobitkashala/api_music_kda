@@ -14,12 +14,13 @@ const getUser = async (req, res) => {
     // const response = [];
     const user = await Users.findAll({
       attributes: [
+        ['id', 'id'],
         ['id_user', 'idUser'],
-        ['role_user','roleUser'],
+        ['sex_user', 'sexUser'],
+        ['role_user', 'roleUser'],
         ['name_user', 'nameUser'],
-        ['email_user','emailUser'],
-        ['sex_user','sexUser'],
-        ['telephone_user','numberPhone'],
+        ['email_user', 'emailUser'],
+        ['telephone_user', 'numberPhone']
       ]
     });
 
