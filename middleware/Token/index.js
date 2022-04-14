@@ -6,7 +6,7 @@ const vefifyAccesToken = express();
 
 vefifyAccesToken.use(async (req, res, next) => {
   // console.log(req.headers['authorization']);
-  if (!req.headers['authorization']) return res.status(203).send({ message: 'Non authoriser' });
+  if (!req.headers['authorization']) return res.status(401).send({ message: 'Non authoriser' });
 
   const authHeader = req.headers['authorization'];
   const bearerToken = authHeader.split(' ');
@@ -16,7 +16,7 @@ vefifyAccesToken.use(async (req, res, next) => {
 
   JWT.verify(token, process.env.JWT_SECRET, (error, payload) => {
     if (error) {
-      return res.status(203).send({ message: error });
+      return res.status(401).send({ message: error });
     }
     req.payload = payload;
      // console.log(payload)

@@ -19,9 +19,9 @@ albumPostMiddleware.use(
 		 if (!errors.isEmpty()) {
 		 	return res.status(400).json({ errors: errors.array() });
 		 }
-		console.log(req.body)
-		return res.status(200).json({ errors: "d" });
-		//  next();
+		// console.log(req.body)
+		// return res.status(200).json({ errors: "d" });
+		  next();
 	}
 );
 
