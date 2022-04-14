@@ -3,25 +3,24 @@ const { cloudinary } = require('../../utils/cloudinary');
 
 const imageAlbumMiddleware = express();
 
-imageAlbumMiddleware.use(async (request, response, next) => {
+imageAlbumMiddleware.use(async (req, res, next) => {
   try {
-    const fileString = request.body.base64EncodedImage;
+    const { base64EncodedImage } = req.body;
 
-    const uploadedResponse = await cloudinary.v2.uploader.upload('fileString', {
+    // console.log(base64EncodedImage);
+
+    const uploadedres = await cloudinary.uploader.upload(base64EncodedImage, {
       upload_preset: 'imageAlbum'
     });
-    console.log(uploadedResponse);
+    // console.log(uploadedres);
 
-    request.body.urlImage = uploadedResponse.secure_url;
+    req.body.urlImage = uploadedres.secure_url;
 
-    // const uploadedResponse = await cloudinary.uploader.upload(fileString);
-
-    console.log(fileString);
-
+    // const uploadedres = await cloudinary.uploader.upload(fileString);
     next();
   } catch (error) {
     console.log(error);
-    response.status(500).json({ errors: error });
+    res.status(500).json({ errors: error });
   }
   // return res.status(400).json({ errors: "d" });
 });

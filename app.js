@@ -11,14 +11,16 @@ const PORT = process.env.PORT || 8080;
 
 
 
-// const corsOptions = {
-//   origin: '["http://localhost:3000",  /.{5,6}\\/\\/kesho-congo-1-.{8,}/]',
-//   credentials: true,
-//   optionSuccessStatus: 200,
-// }
-
 // app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json({limit:'50mb'}));
+app.use(express.urlencoded({limit:'50mb',extended:true}));
+
+// const corsOptions = {
+//   origin: '["http://localhost:3000",/.{5,6}\\/\\/Ndule-1-.{8,}/]',
+//   methods: 'GET,PUT,POST,DELETE',
+//   credentials: true,
+//   optionSuccessStatus: 200
+// };
 
 const corsOptions = {
   origin: '*',
