@@ -7,6 +7,7 @@ const getAlbum = async (req, res) => {
         ['id', 'id'],
         ['is_top', 'isTop'],
         ['id_album', 'idAlbum'],
+        ['url_image', 'urlImage'],
         ['title_album', 'titleAlbum'],
         ['contente_type', 'contenteType']
       ]
