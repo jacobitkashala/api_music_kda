@@ -19,7 +19,6 @@ const authenticate = async (req, res) => {
       // console.log(userWithEmail, passwordUser);
      //  return res.status(401).send({ message: "L'utlisateur n'existe pas" });
       
-      
        if (!isPasswordValid) {
        return res.status(401).send({ message: "L'utlisateur n'existe pas" });
        }
