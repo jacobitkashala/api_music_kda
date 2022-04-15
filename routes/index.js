@@ -10,9 +10,11 @@ const {
   getUserAlbum,
   authenticate
 } = require('../controllers');
+
 const {
   imageMiddleware,
   tokenMiddleware,
+  urlSongMiddleware,
   userPostMiddleware,
   authUserMiddleware,
   songPostMiddleware,
@@ -31,13 +33,13 @@ function routes(app) {
   app
     .route('/api/user')
     .get(tokenMiddleware, getUser)
-    .post(userPostMiddleware, tokenMiddleware, postUser);
+    .post(tokenMiddleware, userPostMiddleware, postUser);
 
   // Route pour Album
   app
     .route('/api/album')
     .get(tokenMiddleware, getAlbum)
-    .post(imageMiddleware, albumPostMiddleware, tokenMiddleware, postAlbum);
+    .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
   app.route('/api/userAlbum').get(tokenMiddleware, getUserAlbum);
 
@@ -45,12 +47,11 @@ function routes(app) {
   app
     .route('/api/song')
     .get(tokenMiddleware, getSong)
-    .post(tokenMiddleware, songPostMiddleware, postSong);
+    .post(tokenMiddleware, urlSongMiddleware, songPostMiddleware, postSong);
 
   // root
   app.route('/api/userw').post(userPostMiddleware, postuserW);
 
   // app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
-  
 }
 module.exports = routes;
