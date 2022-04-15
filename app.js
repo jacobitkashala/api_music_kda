@@ -4,16 +4,13 @@ const express = require('express');
 const routes = require('./routes');
 // const bodyParser = require('body-parser');
 // const { sequelize } = require('./models');
-
 const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-
-
 // app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json({limit:'50mb'}));
-app.use(express.urlencoded({limit:'50mb',extended:true}));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 // const corsOptions = {
 //   origin: '["http://localhost:3000",/.{5,6}\\/\\/Ndule-1-.{8,}/]',
