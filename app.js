@@ -28,6 +28,9 @@ const corsOptions = {
 
 app.use(Cors(corsOptions));
 
+app.get("/",(req,res)=>{
+return res.status(200).send({ erreur: 'the person does not exist' });
+})
 routes(app);
 
 app.listen(PORT, async () => {
