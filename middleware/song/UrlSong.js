@@ -13,13 +13,15 @@ urlSongMiddleware.use(async (req, res, next) => {
     const { base64EncodedSong } = req.body;
 
     const uploadedres = await cloudinary.uploader.upload(base64EncodedSong, {
-      upload_preset: 'SongVideo'
+      upload_preset: 'SongVideo',
+      resource_type: 'video'
+      // upload_preset: 'imageAlbum'
     });
-    console.log(uploadedres);
 
+    // console.log(uploadedres);
     req.body.urlSong = uploadedres.secure_url;
 
-    // next();
+    next();
   } catch (error) {
     // console.log(error);
     res.status(500).json({ errors: error });

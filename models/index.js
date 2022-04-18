@@ -9,13 +9,13 @@ const env = process.env.NODE_ENV || 'development';
 // eslint-disable-next-line node/no-path-concat
 const config = require(__dirname + '/../config/database')[env];
 
-config.use_env_variable = 'ddd';
+// config.use_env_variable = 'ddd';
 
 const db = {};
 
 let sequelize;
 
-console.log(config.use_env_variable);
+// console.log(config.use_env_variable);
 
 if (config.use_env_variable === 'en') {
   sequelize = new Sequelize(process.env[config.use_env_variable], {
