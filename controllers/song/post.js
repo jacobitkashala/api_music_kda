@@ -25,8 +25,6 @@ const postSong = async ( req, res) => {
     } else {
       return res.status(401).send({ erreur: 'the album does not exist' });
     }
-    // return res.status(200).send(albumFind);
-   // return res.status(200).send(song);
   } catch (error) {
     return res.status(401).send({ erreur: error });
   }
