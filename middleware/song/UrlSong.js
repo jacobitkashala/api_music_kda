@@ -18,10 +18,11 @@ urlSongMiddleware.use(async (req, res, next) => {
       // upload_preset: 'imageAlbum'
     });
 
-    // console.log(uploadedres);
-    req.body.urlSong = uploadedres.secure_url;
+    // console.log(uploadedres.secure_url);
 
-    next();
+    req.body.urlSong = await uploadedres.secure_url;
+    if (req.body.urlSong) next();
+
   } catch (error) {
     // console.log(error);
     res.status(500).json({ errors: error });
