@@ -42,6 +42,8 @@ function routes(app) {
     .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
   app.route('/api/userAlbum').get(tokenMiddleware, getUserAlbum);
+  
+  app.route('/api/userAlbumSong').get(tokenMiddleware, getUserAlbum);
 
   // song
   app

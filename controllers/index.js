@@ -9,6 +9,7 @@ const getSong = require('./song/get');
 const putSong = require('./song/find');
 const postSong = require('./song/post');
 const deleteSong = require('./song/delete');
+const  getUserAlbumCountSong= require('./song/delete');
 
 const getUser = require('./user/get');
 const putUser = require('./user/find');
@@ -21,10 +22,12 @@ const authenticate = require('./user/authen');
 module.exports = {
   welcom,
   authenticate,
+  
   putSong,
   getSong,
   postSong,
   deleteSong,
+  getUserAlbumCountSong,
 
   postAlbum,
   getAlbum,
