@@ -21,8 +21,8 @@ urlSongMiddleware.use(async (req, res, next) => {
     // console.log(uploadedres.secure_url);
 
     req.body.urlSong = await uploadedres.secure_url;
-    if (req.body.urlSong) next();
-
+    console.log(req.body.urlSong);
+    next();
   } catch (error) {
     // console.log(error);
     res.status(500).json({ errors: error });
