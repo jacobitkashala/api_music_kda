@@ -16,7 +16,7 @@ const getUserAlbum = async (req, res) => {
 
     const listeUserAssociatAlbm = await sequelize.query(
       `
-      SELECT UsrAlg.name as nameUser,UsrAlg.titleAlbum as titleAlbum,UsrAlg.urlImage as urlImageAlbum, UsrAlg.isTop as isTopAlbum, UsrAlg.contenteType as contenteType
+      SELECT UsrAlg.name as nameUser,UsrAlg.titleAlbum as titleAlbum,UsrAlg.urlImage as urlImageAlbum, UsrAlg.isTop as isTopAlbum, UsrAlg.contenteType as contenteType,sgs.url_song as urlSong
       FROM (SELECT usr.name_user as name, alb.id as id,title_album as titleAlbum, url_image as urlImage,is_top as isTop,contente_type as contenteType
           FROM Albums AS alb
           JOIN  Users AS usr ON alb.id_user = usr.id 
@@ -39,7 +39,7 @@ const getUserAlbum = async (req, res) => {
 //     "isTop": 0,
 //     "contenteType": "Musicien",
 //     "id_songs": "cceee04b-54a2-4fe2-aa9f-54710de59f70",
-//     "url_song": "https://res.cloudinary.com/zenderp/video/upload/v1650561522/SongVideo/k7eofcqnk2gk1qbmca5q.mp3",
+//     "": "https://res.cloudinary.com/zenderp/video/upload/v1650561522/SongVideo/k7eofcqnk2gk1qbmca5q.mp3",
 //     "title_songs": "ddddd",
 //     "id_album": 1,
 module.exports = getUserAlbum;
