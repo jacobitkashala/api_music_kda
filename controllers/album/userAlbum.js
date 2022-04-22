@@ -3,12 +3,25 @@ const { QueryTypes } = require('sequelize');
 
 const getUserAlbum = async (req, res) => {
   try {
+    // const numbreSong = await sequelize.query(
+    //   `
+    //     SELECT *
+    //     FROM Albums AS alb
+    //     JOIN Songs AS Sgs ON alb.id = Sgs.id_album
+    //         ;
+    //     `,
+    //   { type: QueryTypes.SELECT }
+    // );
+    // 
+
     const listeUserAssociatAlbm = await sequelize.query(
       `
-        SELECT name_user as name, id_album as id,title_album as titleAlbum, url_image as urlImage,is_top as isTop,contente_type as contenteType
-        FROM Albums AS alb
-        JOIN Users AS usr ON alb.id_user = usr.id
-            ;
+      SELECT *
+      FROM (SELECT usr.name_user as name, alb.id as id,title_album as titleAlbum, url_image as urlImage,is_top as isTop,contente_type as contenteType
+          FROM Albums AS alb
+          JOIN  Users AS usr ON alb.id_user = usr.id 
+          ) AS UsrAlg
+      JOIN Songs AS sgs ON sgs.id_album = UsrAlg.id   ;
         `,
       { type: QueryTypes.SELECT }
     );
