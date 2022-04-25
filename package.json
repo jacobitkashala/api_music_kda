@@ -5,14 +5,15 @@
     "node": "16.x"
   },
   "description": "",
-  "main": "app.js",
+  "main": "./app.js",
   "scripts": {
     "test2": "jest-puppeteer",
     "nyc": "nyc mocha",
     "test": "jest --coverage",
     "prettier": " prettier app.js --write",
     "eslint": " eslint app.js --fix",
-    "start": "node app.js ",
+    "start": "node app.js",
+    "build": "./node_modules/.bin/netlify-lambda build app.js",
     "develop": "nodemon app.js",
     "prepare": "husky install"
   },
@@ -29,12 +30,14 @@
     "heroku-cli": "^6.15.31",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.2",
+    "netlify-lambda": "^2.0.15",
     "nodemailer": "^6.7.0",
     "passport": "^0.5.0",
     "passport-jwt": "^4.0.0",
     "randomstring": "^1.2.1",
     "sequelize": "^6.8.0",
     "sequelize-cli": "^5.0.0",
+    "serverless-http": "^3.0.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
