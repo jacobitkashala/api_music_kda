@@ -1,5 +1,5 @@
 {
-  "name": "musikiot",
+  "name": "nduleapi",
   "version": "1.0.0",
   "engines": {
     "node": "16.x"
@@ -13,7 +13,6 @@
     "prettier": " prettier app.js --write",
     "eslint": " eslint app.js --fix",
     "start": "node app.js",
-    "build": "./node_modules/.bin/netlify-lambda build app.js",
     "develop": "nodemon app.js",
     "prepare": "husky install"
   },
