@@ -3,13 +3,13 @@ const { QueryTypes } = require('sequelize');
 
 const getSongGroupByAlbums = async (req, res) => {
   try {
-    // const SongGroupByAlbums = [];
-    // const SongInAlbum = {
-    //   title: '',
-    //   author: '',
-    //   nbreSong: '',
-    //   songs: []
-    // };
+     const SongGroupByAlbums = [];
+    const SongInAlbum = {
+      title: '',
+      author: '',
+      nbreSong: '',
+      songs: []
+    };
     // const Song = {
     //   urlSong: '',
     //   titleSongs: ''
@@ -18,54 +18,40 @@ const getSongGroupByAlbums = async (req, res) => {
     // console.log(Song);
     // console.log(SongInAlbum);
     // console.log(SongInAlbums);
-    // SELECT id_album,url_song,title_songs FROM Songs 
-    // SELECT alb.id,alb.title_album,alb.url_image, alb.is_top FROM Albums as alb JOIN Users as us ON us.id = alb.id_user
+    // SELECT id_album,url_song,title_songs FROM Songs
+    //
 
-    const albums = await sequelize.query(
-      ` SELECT id_album as idAlbum,COUNT(*) as numberSong FROM Songs GROUP BY id_album`,
+    const albumsJoinUsers = await sequelize.query(
+      `SELECT alb.id as idAlbum, us.name_user as author ,alb.title_album as titleAlbum,alb.url_image as urlImage, alb.is_top as isTop 
+      FROM Albums as alb JOIN Users as us ON us.id = alb.id_user`,
       { type: QueryTypes.SELECT }
     );
+
+    albumsJoinUsers.forEach((item) => {
+      SongInAlbum.isTop = item.isTop;
+      SongInAlbum.author = item.author;
+      SongInAlbum.title = item.titleAlbum;
+      SongInAlbum.urlImage = item.urlImage;
+
+      SongGroupByAlbums.push(SongInAlbum)
+    });
 
     // const numberSonGroupByAlbum = await sequelize.query(
     //   ` SELECT id_album as idAlbum,COUNT(*) as numberSong FROM Songs GROUP BY id_album`,
     //   { type: QueryTypes.SELECT }
     // );
-    console.log(albums);
 
-    const titleAndSongs = await sequelize.query(`SELECT id_album as idAlbum,url_song as urlSong,title_songs as titleSong FROM Songs`, {
-      type: QueryTypes.SELECT
-    });
-    console.log(titleAndSongs);
+    // const titleAndSongs = await sequelize.query(
+    //   `SELECT id_album as idAlbum,url_song as urlSong,title_songs as titleSong
+    //     FROM Songs`, {
+    //   type: QueryTypes.SELECT
+    // });
+    // console.log(titleAndSongs);
 
-    const listeUserAssociatAlbm = await sequelize.query(
-      `SELECT UsrAlg.name as nameUser,UsrAlg.titleAlbum as titleAlbum,UsrAlg.urlImage as urlImageAlbum, UsrAlg.isTop as isTopAlbum, UsrAlg.contenteType as contenteType,sgs.url_song as urlSong
-        FROM (SELECT usr.name_user as name, alb.id as id,title_album as titleAlbum, url_image as urlImage,is_top as isTop,contente_type as contenteType
-          FROM Albums AS alb
-          JOIN  Users AS usr ON alb.id_user = usr.id 
-          ) AS UsrAlg
-        JOIN Songs AS sgs ON sgs.id_album = UsrAlg.id   ;
-        `,
-      { type: QueryTypes.SELECT }
-    );
     //
-    return res.status(200).send(listeUserAssociatAlbm);
+    return res.status(200).send(SongGroupByAlbums);
   } catch (error) {
     return res.status(500).send({ erreur: error });
   }
 };
-// nombre de chansons par album
-// SELECT `id_album`, `id_songs`, `url_song`, `title_songs` ,COUNT(*)
-// FROM `Songs`
-// GROUP BY `id_album`
-
-// "name": "George Dikamba",
-//     "id": 1,
-//     "titleAlbum": "jésus-christ reviendra",
-//     "urlImage": "https://res.cloudinary.com/zenderp/image/upload/v1649959914/imageAlbum/rwpantb8evcdbiilztjo.jpg",
-//     "isTop": 0,
-//     "contenteType": "Musicien",
-//     "id_songs": "cceee04b-54a2-4fe2-aa9f-54710de59f70",
-//     "": "https://res.cloudinary.com/zenderp/video/upload/v1650561522/SongVideo/k7eofcqnk2gk1qbmca5q.mp3",
-//     "title_songs": "ddddd",
-//     "id_album": 1,
 module.exports = getSongGroupByAlbums;
