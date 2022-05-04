@@ -1,8 +1,41 @@
 const { sequelize } = require('../../models');
 const { QueryTypes } = require('sequelize');
 
-const getUserAlbum = async (req, res) => {
+const getSongGroupByAlbums = async (req, res) => {
   try {
+    // const SongGroupByAlbums = [];
+    // const SongInAlbum = {
+    //   title: '',
+    //   author: '',
+    //   nbreSong: '',
+    //   songs: []
+    // };
+    // const Song = {
+    //   urlSong: '',
+    //   titleSongs: ''
+    // };
+
+    // console.log(Song);
+    // console.log(SongInAlbum);
+    // console.log(SongInAlbums);
+    // SELECT id_album,url_song,title_songs FROM Songs 
+    // SELECT alb.id,alb.title_album,alb.url_image, alb.is_top FROM Albums as alb JOIN Users as us ON us.id = alb.id_user
+
+    const albums = await sequelize.query(
+      ` SELECT id_album as idAlbum,COUNT(*) as numberSong FROM Songs GROUP BY id_album`,
+      { type: QueryTypes.SELECT }
+    );
+
+    // const numberSonGroupByAlbum = await sequelize.query(
+    //   ` SELECT id_album as idAlbum,COUNT(*) as numberSong FROM Songs GROUP BY id_album`,
+    //   { type: QueryTypes.SELECT }
+    // );
+    console.log(albums);
+
+    const titleAndSongs = await sequelize.query(`SELECT id_album as idAlbum,url_song as urlSong,title_songs as titleSong FROM Songs`, {
+      type: QueryTypes.SELECT
+    });
+    console.log(titleAndSongs);
 
     const listeUserAssociatAlbm = await sequelize.query(
       `SELECT UsrAlg.name as nameUser,UsrAlg.titleAlbum as titleAlbum,UsrAlg.urlImage as urlImageAlbum, UsrAlg.isTop as isTopAlbum, UsrAlg.contenteType as contenteType,sgs.url_song as urlSong
@@ -20,7 +53,7 @@ const getUserAlbum = async (req, res) => {
     return res.status(500).send({ erreur: error });
   }
 };
-// nombre de chansons par album 
+// nombre de chansons par album
 // SELECT `id_album`, `id_songs`, `url_song`, `title_songs` ,COUNT(*)
 // FROM `Songs`
 // GROUP BY `id_album`
@@ -35,4 +68,4 @@ const getUserAlbum = async (req, res) => {
 //     "": "https://res.cloudinary.com/zenderp/video/upload/v1650561522/SongVideo/k7eofcqnk2gk1qbmca5q.mp3",
 //     "title_songs": "ddddd",
 //     "id_album": 1,
-module.exports = getUserAlbum;
+module.exports = getSongGroupByAlbums;
