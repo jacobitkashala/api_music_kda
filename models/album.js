@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
 
-      models.Album.hasOne(models.Users, {
+      models.Album.hasOne(models.Users, 
+        {
         foreignKey: {
           name: 'id_user',
           allowNull: false,
@@ -21,9 +22,14 @@ module.exports = (sequelize, DataTypes) => {
           },
           onUpdate: 'CASCADE'
         }
-      });
+      }
+      );
       // models.Album.belongsTo(models.Songs);
-       models.Album.hasMany(models.Songs);
+       models.Album.hasMany(models.Songs,{
+        foreignKey: {
+          name: 'id_album',
+          onUpdate: 'CASCADE'
+        }});
       
     }
   }

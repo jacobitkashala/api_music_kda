@@ -10,10 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
 
-      //
-       // models.Users.belongsTo(models.Album);
-       models.Users.hasMany(models.Album);
-    
+      // models.Users.belongsTo(models.Album);
+      models.Users.hasMany(models.Album, {
+        foreignKey: {
+          name: 'id_user',
+          onUpdate: 'CASCADE'
+        }
+      });
     }
   }
   Users.init(
