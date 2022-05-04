@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
           name: 'id_album',
           allowNull: false,
           references: {
-            model: models.Users,
+            model: models.Album,
             key: 'id'
           },
           onUpdate: 'CASCADE'

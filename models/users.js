@@ -10,9 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
 
-      // models.Users.belongsTo(models.Album);
-
-      // models.Users.belongsTo(models.Podcasts);
+      //
+       // models.Users.belongsTo(models.Album);
+       models.Users.hasMany(models.Album);
+    
     }
   }
   Users.init(
