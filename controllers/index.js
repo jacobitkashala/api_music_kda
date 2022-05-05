@@ -1,14 +1,16 @@
 const welcom = require('./welcom');
 
-const postAlbum = require('./album/post');
 const getAlbum = require('./album/get');
-
+const postAlbum = require('./album/post');
 const getUserAlbum =require('./album/userAlbum');
 
+// Songs
 const getSong = require('./song/get');
 const putSong = require('./song/find');
 const postSong = require('./song/post');
 const deleteSong = require('./song/delete');
+const getSongGroupByAlbums= require('./song/songByAlbums');
+
 const  getUserAlbumCountSong= require('./song/delete');
 
 const getUser = require('./user/get');
@@ -27,10 +29,11 @@ module.exports = {
   getSong,
   postSong,
   deleteSong,
+  getSongGroupByAlbums,
   getUserAlbumCountSong,
 
-  postAlbum,
   getAlbum,
+  postAlbum,
   getUserAlbum,
 
   getUser,

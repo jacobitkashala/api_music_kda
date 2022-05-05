@@ -5,10 +5,14 @@ const {
   getAlbum,
   postuserW,
   postAlbum,
-  postSong,
+
   getSong,
+  postSong,
+  
   getUserAlbum,
-  authenticate
+  authenticate,
+  getSongGroupByAlbums,
+  
 } = require('../controllers');
 
 const {
@@ -51,9 +55,14 @@ function routes(app) {
     .get(tokenMiddleware, getSong)
     .post(tokenMiddleware, urlSongMiddleware, songPostMiddleware, postSong);
 
+     // song
+  app
+  .route('/api/songByAlbums')
+  .get(tokenMiddleware, getSongGroupByAlbums)
+
   // root
   app.route('/api/userw').post(userPostMiddleware, postuserW);
 
-  // app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
+  //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 }
 module.exports = routes;

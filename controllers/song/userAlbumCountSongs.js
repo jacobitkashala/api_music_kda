@@ -20,6 +20,10 @@ const getUserAlbum = async (req, res) => {
     return res.status(500).send({ erreur: error });
   }
 };
+// nombre de chansons par album 
+// SELECT `id_album`, `id_songs`, `url_song`, `title_songs` ,COUNT(*)
+// FROM `Songs`
+// GROUP BY `id_album`
 
 // "name": "George Dikamba",
 //     "id": 1,

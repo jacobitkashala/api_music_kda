@@ -11,8 +11,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
       // models.Users.belongsTo(models.Album);
-
-      // models.Users.belongsTo(models.Podcasts);
+      models.Users.hasMany(models.Album, {
+        foreignKey: {
+          name: 'id_user',
+          onUpdate: 'CASCADE'
+        }
+      });
     }
   }
   Users.init(
