@@ -1,4 +1,4 @@
-const {  Album, Songs } = require('../../models');
+const { Album, Songs } = require('../../models');
 // const { songRefIdAlbums } = require('../../utils');
 // const { QueryTypes } = require('sequelize');
 
@@ -28,8 +28,8 @@ const getSongGroupByAlbums = async (req, res) => {
     //   }
     // );
     // const albumsJoinUsers = await sequelize.query(
-    //   `SELECT alb.id as idAlbum, us.name_user as author ,alb.title_album as titleAlbum,alb.url_image as urlImage, alb.is_top as isTop 
-    //   FROM Albums as alb 
+    //   `SELECT alb.id as idAlbum, us.name_user as author ,alb.title_album as titleAlbum,alb.url_image as urlImage, alb.is_top as isTop
+    //   FROM Albums as alb
     //   JOIN Users as us ON us.id = alb.id_user`,
     //   { type: QueryTypes.SELECT }
     // );
@@ -47,11 +47,22 @@ const getSongGroupByAlbums = async (req, res) => {
     //   }
     // })
 
-    const Songss = await  Songs.findAll({
+    const Songss = await Album.findAll({
+      attributes: [
+        ['is_top', 'titleAlbum'],
+        ['is_top', 'isTopAlbum'],
+        ['url_image', 'titleAlbum'],
+        ['title_album', 'titleAlbum']
+      ],
       include: {
-        model: Album
+        model: Songs,
+        attributes: [
+          ['url_song', 'urlSong'],
+          ['title_songs', 'titleSong']
+        ]
       }
     });
+    // console.log(Songss)
     // albumsJoinUsers.forEach((item) => {
     //   const song = songRefIdAlbums(item.idAlbum, titleAndSongs);
     //   // console.log(song);
