@@ -2,7 +2,7 @@ const { Users, Album } = require('../../models');
 
 const postAlbum = async (req, res) => {
   
-  const { titleAlbum, urlImage, isTop, author, idUser,contentType } = req.body;
+  const { titleAlbum, urlImage, isTop, etatAlbum,author, idUser,contentType } = req.body;
 
   try {
     const userFind = await Users.findOne({
@@ -16,6 +16,7 @@ const postAlbum = async (req, res) => {
       const newAlbum = await Album.create({
         contente_type: contentType,
         title_album: titleAlbum,
+        etat_album:etatAlbum,
         url_image: urlImage,
         is_top: isTop,
         author,

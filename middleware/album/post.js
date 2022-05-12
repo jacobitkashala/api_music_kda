@@ -9,6 +9,7 @@ const albumPostMiddleware = express();
  	body("urlImage").notEmpty().withMessage("urlImage is empty"),
  	body("isTop").notEmpty().withMessage("isTop is empty"),
  	body("contentType").notEmpty().withMessage("contentType is empty"),
+ 	body("etatAlbum").notEmpty().withMessage("etatAlbum is empty"),
  ];
 
 albumPostMiddleware.use(
