@@ -38,6 +38,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      type_son: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      
       id_album: {
         type: DataTypes.INTEGER,
         allowNull: false

@@ -16,6 +16,10 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
+      type_son: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       title_songs: {
         type: DataTypes.STRING,
         allowNull: false
