@@ -18,10 +18,12 @@ const {
 const {
   imageMiddleware,
   tokenMiddleware,
+  mobileMiddleware,
   urlSongMiddleware,
   userPostMiddleware,
   authUserMiddleware,
   songPostMiddleware,
+
   albumPostMiddleware
 } = require('../middleware');
 
@@ -63,6 +65,11 @@ function routes(app) {
   // root
   app.route('/api/userw').post(userPostMiddleware, postuserW);
 
+  // enpoit mobele
+  app.route('/api/albumMobile').get(mobileMiddleware, getSongGroupByAlbums);
+
   //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 }
+
+
 module.exports = routes;
