@@ -10,6 +10,7 @@ const validationDataSong = [
   .withMessage('emailUsers is empty')
   .withMessage('emailUsers is not email'),
   body('nameUser').notEmpty().withMessage('nameUsers is empty'),
+  body('etatUser').notEmpty().withMessage('nameUsers is empty'),
   body('sexUser').notEmpty().withMessage('nameUsers is empty'),
   body('roleUser').notEmpty().withMessage('roleUsers is empty'),
   body('passwordUser').notEmpty().withMessage('passwordUsers is empty'),

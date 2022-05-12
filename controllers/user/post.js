@@ -4,16 +4,17 @@ const bcrypt = require('bcrypt');
 
 const postUser = async (req, res) => {
   try {
-    const { nameUser, passwordUser, numberPhoneUser, roleUser, emailUser, sexUser } = req.body;
+    const { nameUser,etatUser, passwordUser, numberPhoneUser, roleUser, emailUser, sexUser } = req.body;
 
     const passwordCrypt = bcrypt.hashSync(passwordUser, 10);
     const userFind = await Users.findOne({
       where: {
-        name_user: nameUser,
         sex_user: sexUser,
-        telephone_user: numberPhoneUser,
+        name_user: nameUser,
+        etat_user: etatUser,
         role_user: roleUser,
-        email_user: emailUser
+        email_user: emailUser,
+        telephone_user: numberPhoneUser
       }
     });
     const userEmail = await Users.findOne({
