@@ -20,6 +20,10 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
+      etat_album:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       is_top: {
         type: DataTypes.BOOLEAN,
         allowNull: false

@@ -43,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      etat_album:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       url_image: {
         type: DataTypes.STRING,
         allowNull: false

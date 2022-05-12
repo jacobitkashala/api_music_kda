@@ -16,6 +16,10 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
+      etat_user:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       password_user: {
         type: DataTypes.STRING,
         allowNull: false
