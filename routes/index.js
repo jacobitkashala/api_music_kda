@@ -46,9 +46,11 @@ function routes(app) {
     .route('/api/album')
     .get(tokenMiddleware, getAlbum)
     .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
-
+  
+    // user lier à l'album
   app.route('/api/userAlbum').get(tokenMiddleware, getUserAlbum);
   
+  // user lier à l'album 
   app.route('/api/userAlbumSong').get(tokenMiddleware, getUserAlbum);
 
   // song

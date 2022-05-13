@@ -1,6 +1,4 @@
 const { Album, Songs } = require('../../models');
-// const { songRefIdAlbums } = require('../../utils');
-// const { QueryTypes } = require('sequelize');
 
 const getSongGroupByAlbums = async (req, res) => {
   try {
