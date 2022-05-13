@@ -4,7 +4,15 @@ const bcrypt = require('bcrypt');
 
 const postUser = async (req, res) => {
   try {
-    const { nameUser,etatUser, passwordUser, numberPhoneUser, roleUser, emailUser, sexUser } = req.body;
+    const {
+      nameUser,
+      etatUser,
+      passwordUser,
+      numberPhoneUser,
+      roleUser,
+      emailUser,
+      sexUser
+    } = req.body;
 
     const passwordCrypt = bcrypt.hashSync(passwordUser, 10);
     const userFind = await Users.findOne({
@@ -34,12 +42,13 @@ const postUser = async (req, res) => {
     } else {
       // console.log(' no existing');
       const newUser = await Users.create({
+        sex_user: sexUser,
         name_user: nameUser,
+        role_user: roleUser,
+        etat_user: etatUser,
+        email_user: emailUser,
         password_user: passwordCrypt,
         telephone_user: numberPhoneUser,
-        role_user: roleUser,
-        email_user: emailUser,
-        sex_user: sexUser
       });
       return res.status(201).send(newUser);
     }

@@ -4,19 +4,20 @@ const bcrypt = require('bcrypt');
 
 const postUser = async (req, res) => {
   try {
-    const { nameUser, passwordUser, numberPhoneUser, roleUser, emailUser, sexUser } = req.body;
+    const { nameUser, passwordUser,etatUser, numberPhoneUser, roleUser, emailUser, sexUser } = req.body;
 
      const passwordCrypt = bcrypt.hashSync(passwordUser, 10);
 
    // console.log(nameUser, passwordUser, numberPhoneUser, roleUser, emailUser, sexUser );
     
     const newUser = await Users.create({
+      sex_user: sexUser,
       name_user: nameUser,
-      password_user: passwordCrypt,
-      telephone_user: numberPhoneUser,
+      etat_user: etatUser,
       role_user: roleUser,
       email_user: emailUser,
-      sex_user: sexUser
+      password_user: passwordCrypt,
+      telephone_user: numberPhoneUser
     });
     
     return res.status(201).send(newUser);
