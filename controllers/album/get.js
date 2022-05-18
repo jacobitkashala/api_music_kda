@@ -1,22 +1,16 @@
-const { Album,Users } = require('../../models');
+const { Album } = require('../../models');
 
 const getAlbum = async (req, res) => {
   try {
-    const albums = await Users.findAll({
+    const albums = await Album.findAll({
       attributes: [
-        ['name_user', 'nameUser'],
-      ],
-      include: {
-        model: Album,
-        attributes: [
-          ['id', 'id'],
-          ['is_top', 'isTop'],
-          ['id_album', 'idAlbum'],
-          ['url_image', 'urlImage'],
-          ['title_album', 'titleAlbum'],
-          ['contente_type', 'contenteType']
-        ]
-      }
+        ['id', 'id'],
+        ['is_top', 'isTop'],
+        ['id_album', 'idAlbum'],
+        ['url_image', 'urlImage'],
+        ['title_album', 'titleAlbum'],
+        ['contente_type', 'contenteType']
+      ]
     });
     return res.status(200).send(albums);
   } catch (error) {

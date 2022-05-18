@@ -2,16 +2,7 @@ const { Users } = require('../../models');
 
 const getUser = async (req, res) => {
   try {
-    // const responseUser = {
-    //   id: '',
-    //   sex: '',
-    //   idUser: '',
-    //   nameUser: '',
-    //   mailUser: '',
-    //   roleUser: '',
-    //   numberPhoneUser: ''
-    // };
-    // const response = [];
+
     const user = await Users.findAll({
       attributes: [
         ['id', 'id'],
