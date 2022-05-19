@@ -1,5 +1,6 @@
 const welcom = require('./welcom');
 
+// Album
 const getAlbum = require('./album/get');
 const getPodcast = require('./album/getPodCast');
 const postAlbum = require('./album/post');
@@ -10,6 +11,7 @@ const getSong = require('./song/get');
 const putSong = require('./song/find');
 const postSong = require('./song/post');
 const deleteSong = require('./song/delete');
+const getSongPodcast = require('./song/getPodCast');
 const getSongGroupByAlbums= require('./song/songByAlbums');
 
 const  getUserAlbumCountSong= require('./song/delete');
@@ -30,6 +32,7 @@ module.exports = {
   getSong,
   postSong,
   deleteSong,
+  getSongPodcast,
   getSongGroupByAlbums,
   getUserAlbumCountSong,
 

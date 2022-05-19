@@ -1,5 +1,8 @@
 const {
   welcom,
+
+  authenticate,
+
   getUser,
   postUser,
   
@@ -8,12 +11,12 @@ const {
 
   getSong,
   postSong,
+  getSongPodcast,
 
   getAlbum,
   getPodcast,
   getUserAlbum,
-  authenticate,
-  
+
   getSongGroupByAlbums,
   
 } = require('../controllers');
@@ -26,7 +29,6 @@ const {
   userPostMiddleware,
   authUserMiddleware,
   songPostMiddleware,
-
   albumPostMiddleware
 } = require('../middleware');
 
@@ -35,10 +37,11 @@ function routes(app) {
 
   // Authentification user
 
-  app.route('/api/auth/local').post(authUserMiddleware, authenticate);
+  app
+  .route('/api/auth/local')
+  .post(authUserMiddleware, authenticate);
 
   // Route pour User
-
   app
     .route('/api/user')
     .get(tokenMiddleware, getUser)
@@ -46,9 +49,14 @@ function routes(app) {
 
     // PodCast
   app
-    .route('/api/podcast')
+    .route('/api/album/podcast')
     .get(tokenMiddleware, getPodcast)
   
+    app
+    .route('/api/song/podcast')
+    .get(tokenMiddleware, getSongPodcast)
+  
+
     // Route pour Album
   app
     .route('/api/album')
@@ -56,10 +64,14 @@ function routes(app) {
     .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
   
     // user lier à l'album
-  app.route('/api/userAlbum').get(tokenMiddleware, getUserAlbum);
+  app.
+  route('/api/user/album')
+  .get(tokenMiddleware, getUserAlbum);
   
   // user lier à l'album 
-  app.route('/api/userAlbumSong').get(tokenMiddleware, getUserAlbum);
+  app.
+  route('/api/user/album/song')
+  .get(tokenMiddleware, getUserAlbum);
 
   // song
   app
@@ -69,14 +81,18 @@ function routes(app) {
 
      // song
   app
-  .route('/api/songByAlbums')
+  .route('/api/song/albums')
   .get(tokenMiddleware, getSongGroupByAlbums)
 
   // root
-  app.route('/api/userw').post(userPostMiddleware, postuserW);
+  app
+  .route('/api/userw')
+  .post(userPostMiddleware, postuserW);
 
   // enpoit mobele
-  app.route('/api/albumMobile').get(mobileMiddleware, getSongGroupByAlbums);
+  app
+  .route('/api/album/mobile')
+  .get(mobileMiddleware, getSongGroupByAlbums);
 
   //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 }
