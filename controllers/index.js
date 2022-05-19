@@ -1,6 +1,7 @@
 const welcom = require('./welcom');
 
 const getAlbum = require('./album/get');
+const getPodcast = require('./album/getPodCast');
 const postAlbum = require('./album/post');
 const getUserAlbum =require('./album/userAlbum');
 
@@ -34,6 +35,7 @@ module.exports = {
 
   getAlbum,
   postAlbum,
+  getPodcast,
   getUserAlbum,
 
   getUser,

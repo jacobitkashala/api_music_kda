@@ -2,15 +2,18 @@ const {
   welcom,
   getUser,
   postUser,
-  getAlbum,
+  
   postuserW,
   postAlbum,
 
   getSong,
   postSong,
-  
+
+  getAlbum,
+  getPodcast,
   getUserAlbum,
   authenticate,
+  
   getSongGroupByAlbums,
   
 } = require('../controllers');
@@ -41,7 +44,12 @@ function routes(app) {
     .get(tokenMiddleware, getUser)
     .post(tokenMiddleware, userPostMiddleware, postUser);
 
-  // Route pour Album
+    // PodCast
+  app
+    .route('/api/podcast')
+    .get(tokenMiddleware, getPodcast)
+  
+    // Route pour Album
   app
     .route('/api/album')
     .get(tokenMiddleware, getAlbum)
