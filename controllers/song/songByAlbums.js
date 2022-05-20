@@ -1,4 +1,5 @@
 const { Album, Songs } = require('../../models');
+const { Op } = require("sequelize");
 
 const getSongGroupByAlbums = async (req, res) => {
   try {
@@ -15,6 +16,9 @@ const getSongGroupByAlbums = async (req, res) => {
           ['url_song', 'urlSong'],
           ['title_songs', 'titleSong']
         ]
+      }, where: {
+        contente_type: {
+          [Op.ne]: [ "Podcast"]}
       }
     });
 
