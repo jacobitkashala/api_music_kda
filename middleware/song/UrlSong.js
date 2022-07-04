@@ -9,6 +9,7 @@ const { cloudinary } = require('../../utils/cloudinary');
 const urlSongMiddleware = express();
 
 urlSongMiddleware.use(async (req, res, next) => {
+  console.log("debut 02 ");
   try {
     const { base64EncodedSong } = req.body;
 
@@ -21,7 +22,8 @@ urlSongMiddleware.use(async (req, res, next) => {
     // console.log(uploadedres.secure_url);
 
     req.body.urlSong = await uploadedres.secure_url;
-    console.log(req.body.urlSong);
+    // console.log(req.body.urlSong);
+    console.log("next 02 ");
     next();
   } catch (error) {
     // console.log(error);

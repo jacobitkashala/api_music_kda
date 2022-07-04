@@ -5,6 +5,7 @@ const JWT = require('jsonwebtoken');
 const vefifyAccesToken = express();
 
 vefifyAccesToken.use(async (req, res, next) => {
+console.log("debut 01");
   // console.log(req.headers['authorization']);
   if (!req.headers['authorization']) return res.status(401).send({ message: 'Non authoriser' });
 
@@ -20,6 +21,7 @@ vefifyAccesToken.use(async (req, res, next) => {
     }
     req.payload = payload;
      // console.log(payload)
+     console.log("fin 01 next");
       next();
   });
 });
