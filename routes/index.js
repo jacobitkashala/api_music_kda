@@ -28,7 +28,8 @@ const {
   userPostMiddleware,
   authUserMiddleware,
   songPostMiddleware,
-  albumPostMiddleware
+  albumPostMiddleware,
+  tokenMiddlewareMobile
 } = require('../middleware');
 
 function routes(app) {
@@ -55,7 +56,7 @@ function routes(app) {
     // mobile
     app
     .route('/api/album/mobile')
-    .get(tokenMiddleware, getAlbum)
+    .get(tokenMiddlewareMobile, getAlbum)
     // .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
   app.route('/api/album/podcast').get(tokenMiddleware, getPodcast);
