@@ -51,6 +51,12 @@ function routes(app) {
     .route('/api/album')
     .get(tokenMiddleware, getAlbum)
     .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
+  
+    // mobile
+    app
+    .route('/api/album/mobile')
+    .get(tokenMiddleware, getAlbum)
+    // .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
   app.route('/api/album/podcast').get(tokenMiddleware, getPodcast);
 
