@@ -17,6 +17,8 @@ const {
   getPodcast,
   getUserAlbum,
 
+  getSongByIdAlbum,
+
   getSongGroupByAlbums
 } = require('../controllers');
 
@@ -57,6 +59,9 @@ function routes(app) {
     app
     .route('/api/album/mobile')
     .get(tokenMiddlewareMobile, getAlbum)
+    
+    app.route('/api/album/mobile/:uuid')
+    .get(tokenMiddlewareMobile,getSongByIdAlbum);
     // .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
   app.route('/api/album/podcast').get(tokenMiddleware, getPodcast);
