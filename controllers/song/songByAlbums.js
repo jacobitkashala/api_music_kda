@@ -14,6 +14,7 @@ const getSongGroupByAlbums = async (req, res) => {
       include: {
         model: Songs,
         attributes: [
+          ['id', 'id'],
           ['url_song', 'urlSong'],
           ['title_songs', 'titleSong']
         ]
