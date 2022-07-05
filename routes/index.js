@@ -25,7 +25,7 @@ const {
 const {
   imageMiddleware,
   tokenMiddleware,
-  mobileMiddleware,
+  // mobileMiddleware,
   urlSongMiddleware,
   userPostMiddleware,
   authUserMiddleware,
@@ -57,10 +57,12 @@ function routes(app) {
   
     // mobile
     app
-    .route('/api/album/mobile')
-    .get(tokenMiddlewareMobile, getAlbum)
+    .route('/api/song/album/mobile')
+    .get(tokenMiddlewareMobile, getSongGroupByAlbums)
     
-    app.route('/api/album/mobile/:uuid')
+    // app.route('/api/album/mobile/:uuid').get(tokenMiddlewareMobile,getSongByIdAlbum);
+
+    app.route('/api/album/mobile')
     .get(tokenMiddlewareMobile,getSongByIdAlbum);
     // .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
@@ -76,13 +78,15 @@ function routes(app) {
 
   app.route('/api/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
 
+  
+  // enpoit mobile
+  // app.route('/api/song/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
+
+  //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
+
   // root
   app.route('/api/userw').post(userPostMiddleware, postuserW);
 
-  // enpoit mobele
-  app.route('/api/song/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
-
-  //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 }
 
 module.exports = routes;

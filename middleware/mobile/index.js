@@ -5,16 +5,12 @@ const express = require('express');
 const vefifyAccesTokenMobile = express();
 
 vefifyAccesTokenMobile.use(async (req, res, next) => {
-  // console.log(req.headers['authorization']);
-  // if (!req.headers['token']) return res.status(401).send({ message: 'Non authoriser' });
-	// 
+ 
   const {token} = req.query;
  // console.log( typeof token);
 
-  if (token === "sUmVsifj8iCS0nfrPg8UtM4MtQA") {
-	next();
-	// 
-  }else return res.status(400).send({ message:"verify your token "});
+  if (token === "sUmVsifj8iCS0nfrPg8UtM4MtQA") next();
+  else return res.status(400).send({ message:"verify your token "});
   // next();
    // req.payload = payload;
    // console.log(payload)
