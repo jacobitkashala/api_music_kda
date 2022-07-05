@@ -4,7 +4,10 @@ const mobileChecking = express();
 
 mobileChecking.use(async (req, res, next) => {
   try {
-    const { apiKey } = req.params.api_key;
+
+    const { apiKey } = req.query;
+    // console.log(req.query)
+
     if (apiKey === 'c8697268acc5406f1d3c61343bbfd606') next();
     else
       res

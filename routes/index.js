@@ -17,18 +17,21 @@ const {
   getPodcast,
   getUserAlbum,
 
+  // getSongByIdAlbum,
+
   getSongGroupByAlbums
 } = require('../controllers');
 
 const {
   imageMiddleware,
   tokenMiddleware,
-  mobileMiddleware,
+  // mobileMiddleware,
   urlSongMiddleware,
   userPostMiddleware,
   authUserMiddleware,
   songPostMiddleware,
-  albumPostMiddleware
+  albumPostMiddleware,
+  tokenMiddlewareMobile
 } = require('../middleware');
 
 function routes(app) {
@@ -51,6 +54,16 @@ function routes(app) {
     .route('/api/album')
     .get(tokenMiddleware, getAlbum)
     .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
+  
+    // mobile
+    app
+    .route('/api/song/album/mobile')
+    .get(tokenMiddlewareMobile, getSongGroupByAlbums)
+    
+    // app.route('/api/album/mobile/:uuid').get(tokenMiddlewareMobile,getSongByIdAlbum);
+
+   // app.route('/api/album/mobile').get(tokenMiddlewareMobile,getSongByIdAlbum);
+    // .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
   app.route('/api/album/podcast').get(tokenMiddleware, getPodcast);
 
@@ -64,13 +77,15 @@ function routes(app) {
 
   app.route('/api/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
 
+  
+  // enpoit mobile
+  // app.route('/api/song/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
+
+  //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
+
   // root
   app.route('/api/userw').post(userPostMiddleware, postuserW);
 
-  // enpoit mobele
-  app.route('/api/:api_key').get(mobileMiddleware,welcom );
-  // /movie?api_key=
-  //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 }
 
 module.exports = routes;

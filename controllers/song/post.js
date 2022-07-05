@@ -6,7 +6,7 @@ const postSong = async (req, res) => {
   // const { idAlbum, titleSong, urlSong } = req.body;
 
   try {
-    // console.log(idAlbum, titleSong, urlSong);
+     console.log(idAlbum, titleSong, urlSong);
     const findIdAlbum = await Album.findAll({
       where: {
         id: idAlbum

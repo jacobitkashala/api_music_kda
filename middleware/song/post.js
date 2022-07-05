@@ -13,6 +13,8 @@ const validationDataSong = [
 
 songPostMiddleware.use(validationDataSong, async (req, res, next) => {
   const errors = validationResult(req);
+ // console.log("debut 03 ");
+   // console.log(req.body);
     //   console.log(req.body);
   if (!errors.isEmpty()) {
     // console.log(req.body);
@@ -20,6 +22,7 @@ songPostMiddleware.use(validationDataSong, async (req, res, next) => {
   }
 
   // return res.status(400).json({ errors: "cool" });
+ // console.log("next 03 ");
   next();
 });
 
