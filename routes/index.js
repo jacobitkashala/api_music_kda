@@ -80,7 +80,7 @@ function routes(app) {
   app.route('/api/userw').post(userPostMiddleware, postuserW);
 
   // enpoit mobele
-  app.route('/api/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
+  app.route('/api/song/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
 
   //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 }
