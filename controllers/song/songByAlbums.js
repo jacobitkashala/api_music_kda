@@ -1,11 +1,12 @@
 const { Album, Songs } = require('../../models');
-const { Op } = require("sequelize");
+// const { Op } = require("sequelize");
 
 const getSongGroupByAlbums = async (req, res) => {
   try {
 
     const songByAlbums = await Album.findAll({
       attributes: [
+        ['id', 'id'],
         ['is_top', 'isTopAlbum'],
         ['url_image', 'urlImage'],
         ['title_album', 'titleAlbum']
@@ -16,10 +17,11 @@ const getSongGroupByAlbums = async (req, res) => {
           ['url_song', 'urlSong'],
           ['title_songs', 'titleSong']
         ]
-      }, where: {
-        contente_type: {
-          [Op.ne]: [ "Podcast"]}
       }
+      // , where: {
+      //   contente_type: {
+      //     [Op.ne]: [ "Podcast"]}
+      // }
     });
 
     return res.status(200).send(songByAlbums);
