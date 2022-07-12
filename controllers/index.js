@@ -25,6 +25,8 @@ const deleteUser = require('./user/delete');
 
 const authenticate = require('./user/authen');
 
+const reporting =require('./reporting');
+
 module.exports = {
   welcom,
   authenticate,
@@ -37,6 +39,8 @@ module.exports = {
   getSongGroupByAlbums,
   getUserAlbumCountSong,
 
+  reporting,
+  
   getAlbum,
   postAlbum,
   getPodcast,

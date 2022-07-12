@@ -18,7 +18,7 @@ const {
   getUserAlbum,
 
   // getSongByIdAlbum,
-
+  reporting,
   getSongGroupByAlbums
 } = require('../controllers');
 
@@ -54,11 +54,16 @@ function routes(app) {
     .route('/api/album')
     .get(tokenMiddleware, getAlbum)
     .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
-  
+    
+    app
+    .route('/api/reporting')
+    .get(tokenMiddleware, reporting)
     // mobile
     app
     .route('/api/song/album/mobile')
     .get(tokenMiddlewareMobile, getSongGroupByAlbums)
+   
+    
     
     // app.route('/api/album/mobile/:uuid').get(tokenMiddlewareMobile,getSongByIdAlbum);
 

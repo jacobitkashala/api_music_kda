@@ -20,19 +20,4 @@ const getUserAlbum = async (req, res) => {
     return res.status(500).send({ erreur: error });
   }
 };
-// nombre de chansons par album 
-// SELECT `id_album`, `id_songs`, `url_song`, `title_songs` ,COUNT(*)
-// FROM `Songs`
-// GROUP BY `id_album`
-
-// "name": "George Dikamba",
-//     "id": 1,
-//     "titleAlbum": "jésus-christ reviendra",
-//     "urlImage": "https://res.cloudinary.com/zenderp/image/upload/v1649959914/imageAlbum/rwpantb8evcdbiilztjo.jpg",
-//     "isTop": 0,
-//     "contenteType": "Musicien",
-//     "id_songs": "cceee04b-54a2-4fe2-aa9f-54710de59f70",
-//     "": "https://res.cloudinary.com/zenderp/video/upload/v1650561522/SongVideo/k7eofcqnk2gk1qbmca5q.mp3",
-//     "title_songs": "ddddd",
-//     "id_album": 1,
 module.exports = getUserAlbum;
