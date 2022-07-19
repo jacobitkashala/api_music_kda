@@ -20,7 +20,7 @@ const reporting = async (req, res) => {
 		  `,
       { type: QueryTypes.SELECT }
     );
-    
+
     const dataChartUsers = await sequelize.query(
       `SELECT COUNT(Users.id_user) as nbrUser ,MONTH(Users.createdAt) As mois 
         FROM Users 
@@ -31,15 +31,16 @@ const reporting = async (req, res) => {
     );
 
     const dataReporting = {
-        albums: dataChartAlbums,
-        songs: dataChartSongs,
-        users: dataChartUsers,
-       // countUser:countUser[0].nbrUser
-        };
+      error: false,
+      albums: dataChartAlbums,
+      songs: dataChartSongs,
+      users: dataChartUsers
+      // countUser:countUser[0].nbrUser
+    };
 
     return res.status(200).send(dataReporting);
   } catch (error) {
-    return res.status(500).send({ erreur: error });
+    return res.status(500).send({ error: true, message: error });
   }
 };
 module.exports = reporting;
