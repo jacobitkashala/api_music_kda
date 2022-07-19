@@ -17,7 +17,7 @@ const getSongGroupByAlbums= require('./song/songByAlbums');
 const  getUserAlbumCountSong= require('./song/delete');
 const  getSongByIdAlbum= require('./song/getSongByIdAlbum');
 
-const getUser = require('./user/get');
+const Users = require('./user/get');
 const putUser = require('./user/find');
 const postUser = require('./user/post');
 const postuserW = require('./user/postWin'); 
@@ -46,7 +46,7 @@ module.exports = {
   getPodcast,
   getUserAlbum,
 
-  getUser,
+  Users,
   putUser,
   postUser,
   deleteUser,
