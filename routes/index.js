@@ -62,9 +62,6 @@ function routes(app) {
     app
     .route('/api/v1/song/album/mobile')
     .get(tokenMiddlewareMobile, getSongGroupByAlbums)
-   
-    
-    
     // app.route('/api/album/mobile/:uuid').get(tokenMiddlewareMobile,getSongByIdAlbum);
 
    // app.route('/api/album/mobile').get(tokenMiddlewareMobile,getSongByIdAlbum);

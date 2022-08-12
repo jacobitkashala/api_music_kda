@@ -1,5 +1,7 @@
 const { Users } = require('../../models');
 
+
+
 const getUser = async (req, res) => {
   try {
     let user;
