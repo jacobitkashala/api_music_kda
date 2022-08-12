@@ -1,7 +1,7 @@
 const { sequelize } = require('../../models');
+// const { Users } = require('../../models');
 const { QueryTypes } = require('sequelize');
-const NodeCache = require('node-cache');
-const myCache = new NodeCache({ stdTTL: 20 });
+const {myCache} =require('../../utils')
 
 const reporting = async (req, res) => {
   const dataReporting = {
