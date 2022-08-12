@@ -4,7 +4,7 @@ const welcom = require('./welcom');
 const getAlbum = require('./album/get');
 const getPodcast = require('./album/getPodCast');
 const postAlbum = require('./album/post');
-const getUserAlbum =require('./album/userAlbum');
+const getUserAlbum = require('./album/userAlbum');
 
 // Songs
 const getSong = require('./song/get');
@@ -12,25 +12,25 @@ const putSong = require('./song/find');
 const postSong = require('./song/post');
 const deleteSong = require('./song/delete');
 const getSongPodcast = require('./song/getPodCast');
-const getSongGroupByAlbums= require('./song/songByAlbums');
+const getSongGroupByAlbums = require('./song/songByAlbums');
 
-const  getUserAlbumCountSong= require('./song/delete');
-const  getSongByIdAlbum= require('./song/getSongByIdAlbum');
+const getUserAlbumCountSong = require('./song/delete');
+const getSongByIdAlbum = require('./song/getSongByIdAlbum');
 
 const Users = require('./user/get');
-const putUser = require('./user/find');
+const findUserById = require('./user/findById');
 const postUser = require('./user/post');
-const postuserW = require('./user/postWin'); 
+const postuserW = require('./user/postWin');
 const deleteUser = require('./user/delete');
 
 const authenticate = require('./user/authen');
 
-const reporting =require('./reporting');
+const reporting = require('./reporting');
 
 module.exports = {
   welcom,
   authenticate,
-  
+
   putSong,
   getSong,
   postSong,
@@ -40,14 +40,14 @@ module.exports = {
   getUserAlbumCountSong,
 
   reporting,
-  
+
   getAlbum,
   postAlbum,
   getPodcast,
   getUserAlbum,
 
   Users,
-  putUser,
+  findUserById,
   postUser,
   deleteUser,
   getSongByIdAlbum,
