@@ -3,6 +3,7 @@ const { myCache } = require('../../utils');
 
 const getUser = async (req, res) => {
   try {
+    console.log(req)
     const response = {
       error: true,
       data: '',

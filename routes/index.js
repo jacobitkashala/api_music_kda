@@ -47,11 +47,11 @@ function routes(app) {
   app.route('/api/v1/users/:uuid').get(tokenMiddleware, findUserById);
 
   // user lier à l'album
-  app.route('/api/user/album').get(tokenMiddleware, getUserAlbum);
+  app.route('/api/v1/user/album').get(tokenMiddleware, getUserAlbum);
 
   // Route pour Album
   app
-    .route('/api/album')
+    .route('/api/v1/album')
     .get(tokenMiddleware, getAlbum)
     .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
@@ -66,13 +66,13 @@ function routes(app) {
 
   // song
   app
-    .route('/api/song')
+    .route('/api/v1/song')
     .get(tokenMiddleware, getSong)
     .post(tokenMiddleware, urlSongMiddleware, songPostMiddleware, postSong);
 
-  app.route('/api/song/podcast').get(tokenMiddleware, getSongPodcast);
+  app.route('/api/v1/song/podcast').get(tokenMiddleware, getSongPodcast);
 
-  app.route('/api/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
+  app.route('/api/v1/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
 
   // enpoit mobile
   // app.route('/api/song/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
