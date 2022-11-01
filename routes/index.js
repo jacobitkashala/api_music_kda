@@ -5,15 +5,17 @@ const {
 
   Users,
   postUser,
-
   postuserW,
+  deleteUser,
+
   postAlbum,
+  getAlbum,
 
   getSong,
   postSong,
   getSongPodcast,
 
-  getAlbum,
+
   getPodcast,
   getUserAlbum,
   findUserById,
@@ -25,6 +27,7 @@ const {
   imageMiddleware,
   tokenMiddleware,
   // mobileMiddleware,
+  verifyUuiduser,
   urlSongMiddleware,
   userPostMiddleware,
   authUserMiddleware,
@@ -44,7 +47,10 @@ function routes(app) {
     .route('/api/v1/users')
     .get(tokenMiddleware, Users)
     .post(tokenMiddleware, userPostMiddleware, postUser);
-  app.route('/api/v1/users/:uuid').get(tokenMiddleware, findUserById);
+  app
+    .route('/api/v1/users/:uuid')
+    .get(tokenMiddleware, verifyUuiduser,findUserById)
+    .delete(tokenMiddleware, verifyUuiduser,deleteUser);
 
   // user lier à l'album
   app.route('/api/v1/user/album').get(tokenMiddleware, getUserAlbum);

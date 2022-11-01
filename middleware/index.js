@@ -7,12 +7,12 @@ const imageMiddleware = require('./album/image');
 const albumPostMiddleware = require('./album/post');
 
 const userPostMiddleware = require('./users/post');
-
 const authUserMiddleware = require('./users/auth');
+const verifyUuiduser = require('./users/verifyUuid');
 
 const tokenMiddleware = require('./Token');
 // mobile
-const tokenMiddlewareMobile = require('./mobile');
+ const tokenMiddlewareMobile = require('./mobile');
 
 module.exports = {
   imageMiddleware,
@@ -21,6 +21,7 @@ module.exports = {
   urlSongMiddleware,
   songPostMiddleware,
   userPostMiddleware,
+  verifyUuiduser,
   authUserMiddleware,
   albumPostMiddleware,
   tokenMiddlewareMobile
