@@ -3,7 +3,8 @@ const { myCache } = require('../../utils');
 
 const getUser = async (req, res) => {
   try {
-    console.log(req)
+    // console.log(req.query.offset);
+    // console.log(req.query.limit);
     const response = {
       error: true,
       data: '',
@@ -12,7 +13,7 @@ const getUser = async (req, res) => {
     if (myCache.has('userData')) {
       return res.status(200).send(myCache.get('userData'));
     } else {
-      if (!isNaN(req.query.page) && !isNaN(req.query.size)) {
+      if (!isNaN(req.query.offset) && !isNaN(req.query.limit)) {
         const countUser = await Users.count();
         const user = await Users.findAll({
           attributes: [
@@ -24,8 +25,8 @@ const getUser = async (req, res) => {
             ['email_user', 'emailUser'],
             ['telephone_user', 'numberPhone']
           ],
-          offset: Number(req.query.page),
-          limit: Number(req.query.size)
+          offset: Number(req.query.offset),
+          limit: Number(req.query.limit)
         });
         response.error = false;
         response.data = user;
