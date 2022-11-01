@@ -3,6 +3,7 @@ const { Users } = require('../../models');
 const bcrypt = require('bcrypt');
 
 const postUser = async (req, res) => {
+  const dataResponse = {};
   try {
     const {
       nameUser,
@@ -31,26 +32,29 @@ const postUser = async (req, res) => {
       }
     });
     if (userEmail) {
-      return res
-        .status(400)
-        .send({ erreur: "L'adresse e-mail existe veuillez changer l'informations" });
+      dataResponse.error = true;
+      dataResponse.message = "L'adresse e-mail existe veuillez changer l'informations";
+      return res.status(400).send({ dataResponse });
     }
     if (userFind) {
-      return res
-        .status(400)
-        .send({ erreur: 'La personne existe veuillez changer les informations' });
+      dataResponse.error = true;
+      dataResponse.message = 'La personne existe veuillez changer les informations';
+      return res.status(400).send({ dataResponse });
     } else {
       // console.log(' no existing');
-      const newUser = await Users.create({
+      await Users.create({
         sex_user: sexUser,
         name_user: nameUser,
         role_user: roleUser,
         etat_user: etatUser,
         email_user: emailUser,
         password_user: passwordCrypt,
-        telephone_user: numberPhoneUser,
+        telephone_user: numberPhoneUser
       });
-      return res.status(201).send(newUser);
+      dataResponse.error = false;
+      dataResponse.message = "L'utilisateur a été créer avec succès.";
+
+      return res.status(201).send({ dataResponse });
     }
   } catch (error) {
     return res.status(400).send({ erreur: error });
