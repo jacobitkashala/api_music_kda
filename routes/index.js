@@ -7,6 +7,7 @@ const {
   postUser,
   postuserW,
   deleteUser,
+  updateUser,
 
   postAlbum,
   getAlbum,
@@ -14,7 +15,6 @@ const {
   getSong,
   postSong,
   getSongPodcast,
-
 
   getPodcast,
   getUserAlbum,
@@ -50,7 +50,8 @@ function routes(app) {
   app
     .route('/api/v1/users/:uuid')
     .get(tokenMiddleware, verifyUuiduser,findUserById)
-    .delete(tokenMiddleware, verifyUuiduser,deleteUser);
+    .delete(tokenMiddleware, verifyUuiduser,deleteUser)
+    .put(tokenMiddleware, verifyUuiduser,updateUser);
 
   // user lier à l'album
   app.route('/api/v1/user/album').get(tokenMiddleware, getUserAlbum);

@@ -16,12 +16,13 @@ const getSongGroupByAlbums = require('./song/songByAlbums');
 
 const getUserAlbumCountSong = require('./song/delete');
 const getSongByIdAlbum = require('./song/getSongByIdAlbum');
-
+// User
 const Users = require('./user/get');
 const findUserById = require('./user/findById');
-const postUser = require('./user/post');
+const postUser = require('./user/create');
 const postuserW = require('./user/postWin');
 const deleteUser = require('./user/delete');
+const updateUser = require('./user/update');
 
 const authenticate = require('./user/authen');
 
@@ -50,6 +51,7 @@ module.exports = {
   findUserById,
   postUser,
   deleteUser,
+  updateUser,
   getSongByIdAlbum,
   postuserW
 };
