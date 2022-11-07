@@ -74,7 +74,7 @@ function routes(app) {
   
  // app.route('/api/v1/song/podcast').get(tokenMiddleware, getSongPodcast);
 
-  // app.route('/api/v1/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
+app.route('/api/v1/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
 
   // mobile
 app.route('/api/v1/albums/mobile').get(tokenMiddlewareMobile, getSongGroupByAlbums);
