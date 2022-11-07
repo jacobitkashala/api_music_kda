@@ -13,8 +13,8 @@ const {
   getAlbum,
 
   getSong,
-  postSong,
-  getSongPodcast,
+  // postSong,
+  // getSongPodcast,
 
   getPodcast,
   getUserAlbum,
@@ -28,10 +28,10 @@ const {
   tokenMiddleware,
   // mobileMiddleware,
   verifyUuiduser,
-  urlSongMiddleware,
+  // urlSongMiddleware,
   userPostMiddleware,
   authUserMiddleware,
-  songPostMiddleware,
+  // songPostMiddleware,
   albumPostMiddleware,
   tokenMiddlewareMobile
 } = require('../middleware');
@@ -63,23 +63,24 @@ function routes(app) {
     .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
 
   app.route('/api/v1/reporting').get(tokenMiddleware, reporting);
+
   // mobile
-  app.route('/api/v1/song/album/mobile').get(tokenMiddlewareMobile, getSongGroupByAlbums);
-
-  // app.route('/api/album/mobile').get(tokenMiddlewareMobile,getSongByIdAlbum);
-  // .post(tokenMiddleware, imageMiddleware, albumPostMiddleware, postAlbum);
-
+  app.route('/api/v1/albums/mobile').get(tokenMiddlewareMobile, getSongGroupByAlbums);
   app.route('/api/v1/album/podcast').get(tokenMiddleware, getPodcast);
 
   // song
   app
+    .route('/api/v1/son/mobile')
+    .get(tokenMiddlewareMobile, getSong)
+    app
     .route('/api/v1/song')
     .get(tokenMiddleware, getSong)
-    .post(tokenMiddleware, urlSongMiddleware, songPostMiddleware, postSong);
+    
+    // .post(tokenMiddleware, urlSongMiddleware, songPostMiddleware, postSong);
 
-  app.route('/api/v1/song/podcast').get(tokenMiddleware, getSongPodcast);
+  // app.route('/api/v1/song/podcast').get(tokenMiddleware, getSongPodcast);
 
-  app.route('/api/v1/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
+  // app.route('/api/v1/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
 
   // enpoit mobile
   // app.route('/api/song/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
