@@ -13,7 +13,7 @@ const {
   getAlbum,
 
   getSong,
-  // postSong,
+  postSong,
   // getSongPodcast,
 
   getPodcast,
@@ -28,10 +28,10 @@ const {
   tokenMiddleware,
   // mobileMiddleware,
   verifyUuiduser,
-  // urlSongMiddleware,
+  urlSongMiddleware,
   userPostMiddleware,
   authUserMiddleware,
-  // songPostMiddleware,
+  songPostMiddleware,
   albumPostMiddleware,
   tokenMiddlewareMobile
 } = require('../middleware');
@@ -64,31 +64,31 @@ function routes(app) {
 
   app.route('/api/v1/reporting').get(tokenMiddleware, reporting);
 
-  // mobile
-  app.route('/api/v1/albums/mobile').get(tokenMiddlewareMobile, getSongGroupByAlbums);
-  app.route('/api/v1/album/podcast').get(tokenMiddleware, getPodcast);
-
-  // song
   app
-    .route('/api/v1/son/mobile')
-    .get(tokenMiddlewareMobile, getSong)
-    app
-    .route('/api/v1/song')
+    .route('/api/v1/songs')
     .get(tokenMiddleware, getSong)
-    
-    // .post(tokenMiddleware, urlSongMiddleware, songPostMiddleware, postSong);
+    .post(tokenMiddleware, urlSongMiddleware, songPostMiddleware, postSong);
 
-  // app.route('/api/v1/song/podcast').get(tokenMiddleware, getSongPodcast);
+  app.route('/api/v1/album/podcast').get(tokenMiddleware, getPodcast);
+  //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
+  
+ // app.route('/api/v1/song/podcast').get(tokenMiddleware, getSongPodcast);
 
   // app.route('/api/v1/song/albums').get(tokenMiddleware, getSongGroupByAlbums);
+
+  // mobile
+app.route('/api/v1/albums/mobile').get(tokenMiddlewareMobile, getSongGroupByAlbums);
+  // song
+app
+    .route('/api/v1/songs/mobile')
+    .get(tokenMiddlewareMobile, getSong);
 
   // enpoit mobile
   // app.route('/api/song/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
 
-  //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 
-  // root
-  app.route('/api/userw').post(userPostMiddleware, postuserW);
+    // root
+    app.route('/api/userw').post(userPostMiddleware, postuserW);
 }
 
 module.exports = routes;
