@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // models.Users.belongsTo(models.Album);
       models.Users.hasMany(models.Album, {
         foreignKey: {
-          name: 'id_user',
+          name: 'id_user', 
+          onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
+        
         }
       });
     }

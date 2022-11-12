@@ -31,6 +31,7 @@ module.exports = {
           model: 'Albums',
           key: 'id'
         },
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       },
       createdAt: {

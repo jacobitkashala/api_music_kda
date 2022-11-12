@@ -12,19 +12,19 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: 'GET,PUT,POST,DELETE',
-  credentials: true,
-  optionSuccessStatus: 200
-};
-
 // const corsOptions = {
-//   origin: '*',
+//   origin: 'http://localhost:3000',
 //   methods: 'GET,PUT,POST,DELETE',
 //   credentials: true,
 //   optionSuccessStatus: 200
 // };
+
+const corsOptions = {
+  origin: '*',
+  methods: 'GET,PUT,POST,DELETE',
+  credentials: true,
+  optionSuccessStatus: 200
+};
 
 app.use(Cors(corsOptions));
 

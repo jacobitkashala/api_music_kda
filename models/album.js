@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
             model: models.Users,
             key: 'id'
           },
+          onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
         }
       }
@@ -28,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
        models.Album.hasMany(models.Songs,{
         foreignKey: {
           name: 'id_album',
+          onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
         }});
       

@@ -88,7 +88,7 @@ app
 
 
     // root
-    app.route('/api/userw').post(userPostMiddleware, postuserW);
+    app.route('/api/v1/userw').post(userPostMiddleware, postuserW);
 }
 
 module.exports = routes;
