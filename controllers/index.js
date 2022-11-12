@@ -3,7 +3,7 @@ const welcom = require('./welcom');
 // Album
 const getAlbum = require('./album/get');
 const getPodcast = require('./album/getPodCast');
-const postAlbum = require('./album/post');
+const postAlbum = require('./album/create');
 const getUserAlbum = require('./album/userAlbum');
 
 // Songs
