@@ -10,8 +10,6 @@ const postAlbum = async (req, res) => {
         id: idUser
       }
     });
-    // console.log(userFind);
-    // return res.status(201).send({ message: 'ok' });
     if (userFind) {
       const newAlbum = await Album.create({
         contente_type: contentType,
