@@ -4,10 +4,6 @@
 
 1)enpoint:user/album
 
-> pagination:5
-> Recherche
-> => la suppression de l'utisateur ainsi que ses album et song
-
 2. Resoudre le problème de cors
 
 1)/albums

@@ -69,7 +69,7 @@ function routes(app) {
     .get(tokenMiddleware, getSong)
     .post(tokenMiddleware, urlSongMiddleware, songPostMiddleware, postSong);
 
-  app.route('/api/v1/podcast').get(tokenMiddleware, getPodcast);
+  app.route('/api/v1/podcasts').get(tokenMiddleware, getPodcast);
   //  app.route('/api/musik/song/:uuid').get(putSong).delete(deleteSong);
 
   // app.route('/api/v1/song/podcast').get(tokenMiddleware, getSongPodcast);
@@ -78,7 +78,6 @@ function routes(app) {
 
   // mobile
   app.route('/api/v1/albums/mobile').get(tokenMiddlewareMobile, getSongGroupByAlbums);
-  // song
   app.route('/api/v1/songs/mobile').get(tokenMiddlewareMobile, getSong);
 
   // enpoit mobile
