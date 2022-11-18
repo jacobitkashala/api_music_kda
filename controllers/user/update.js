@@ -31,14 +31,15 @@ const update = async (req, res) => {
       dataResponse.message = 'Mettez le bon parametre';
       return res.status(200).send({ dataResponse });
     } else {
+      
       await Users.update(
         {
-          sex_user: sexUser,
-          name_user: nameUser,
-          etat_user: etatUser,
-          role_user: roleUser,
-          email_user: emailUser,
-          telephone_user: numberPhoneUser
+          sex_user: sexUser===""?undefined:sexUser,
+          name_user: nameUser===""?undefined:nameUser,
+          etat_user: etatUser===""?undefined:etatUser,
+          role_user: roleUser===""?undefined:roleUser,
+          email_user: emailUser===""?undefined:emailUser,
+          telephone_user: numberPhoneUser===""?undefined:numberPhoneUser
         },
         {
           where: { id_user: uuid }

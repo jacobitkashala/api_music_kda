@@ -80,9 +80,6 @@ function routes(app) {
   app.route('/api/v1/albums/mobile').get(tokenMiddlewareMobile, getSongGroupByAlbums);
   app.route('/api/v1/songs/mobile').get(tokenMiddlewareMobile, getSong);
 
-  // enpoit mobile
-  // app.route('/api/song/album/mobile').get(mobileMiddleware, getSongGroupByAlbums);
-
   // root
   app.route('/api/v1/userw').post(userPostMiddleware, postuserW);
 }
