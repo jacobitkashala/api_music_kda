@@ -5,7 +5,7 @@ const getSongs = async (req, res) => {
   try {
     // let songs=[];
     const { idAlbum } = req.query;
-    // console.log(idAlbum) id_album
+    console.log(idAlbum)
 
     if (idAlbum) {
       // pour le mobile permet de ne recuperer que le song lieu avec les id
