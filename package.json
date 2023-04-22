@@ -1,8 +1,10 @@
 {
+  "author": "jacobitkashala",
+  "license": "ISC",
   "name": "nduleapi",
   "version": "1.0.0",
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "description": "",
   "main": "app.js",
@@ -16,8 +18,7 @@
     "develop": "nodemon app.js",
     "prepare": "husky install"
   },
-  "author": "jacobitkashala",
-  "license": "ISC",
+ 
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
